@@ -443,15 +443,18 @@
           <div class="form-card">
             <h3>Join the Investor Network</h3>
             <p>Real project updates and development insights — no spam, no pressure.</p>
-            <form id="signupForm">
+            <form id="signupForm" novalidate>
               <div class="form-group">
                 <input type="text" name="name" placeholder="Full Name" required>
+                <p class="form-error"></p>
               </div>
               <div class="form-group">
                 <input type="email" name="email" placeholder="Email Address" required>
+                <p class="form-error"></p>
               </div>
               <div class="form-group">
                 <input type="tel" name="phone" placeholder="Phone Number" required>
+                <p class="form-error"></p>
               </div>
               <div class="form-group">
                 <select name="interest" required>
@@ -460,6 +463,7 @@
                   <option>Actively researching opportunities</option>
                   <option>Ready to invest in the right deal</option>
                 </select>
+                <p class="form-error"></p>
               </div>
               <button type="submit" class="btn btn-red full-width" id="formBtn">Join the Network</button>
             </form>

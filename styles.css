@@ -654,6 +654,18 @@ img { max-width: 100%; display: block; }
 }
 .form-note { text-align: center; font-size: 0.72rem; color: var(--gray-t); margin-top: 12px; line-height: 1.5; }
 
+.form-error {
+  font-size: 0.72rem; color: #dc2626;
+  margin-top: 5px; padding-left: 2px;
+  display: none; line-height: 1.4;
+}
+.form-group.has-error .form-error { display: block; }
+.form-group.has-error input,
+.form-group.has-error select {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 3px rgba(220,38,38,0.09);
+}
+
 /* ============================================================
    ABOUT
    ============================================================ */

@@ -84,16 +84,65 @@ const barObs = new IntersectionObserver((entries) => {
 document.querySelectorAll('.project-card').forEach(c => barObs.observe(c));
 
 /* ============================================================
-   FORM SUBMISSION — Web3Forms
+   FORM SUBMISSION — Web3Forms + validation
    ============================================================ */
 const form    = document.getElementById('signupForm');
 const formBtn = document.getElementById('formBtn');
 
 const WEB3FORMS_KEY = '95b2c17b-007d-4f9f-b814-bab04e6efbf5';
 
+function setFieldError(input, message) {
+  const group = input.closest('.form-group');
+  group.classList.add('has-error');
+  group.querySelector('.form-error').textContent = message;
+}
+
+function clearFieldError(input) {
+  input.closest('.form-group').classList.remove('has-error');
+}
+
+function validateForm() {
+  let valid = true;
+
+  const nameEl     = form.querySelector('[name="name"]');
+  const emailEl    = form.querySelector('[name="email"]');
+  const phoneEl    = form.querySelector('[name="phone"]');
+  const interestEl = form.querySelector('[name="interest"]');
+
+  if (!nameEl.value.trim()) {
+    setFieldError(nameEl, 'Full name is required.');
+    valid = false;
+  }
+
+  const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  if (!emailRe.test(emailEl.value.trim())) {
+    setFieldError(emailEl, 'Please enter a valid email address.');
+    valid = false;
+  }
+
+  const digits = phoneEl.value.replace(/\D/g, '');
+  if (digits.length < 10) {
+    setFieldError(phoneEl, 'Please enter a valid phone number (at least 10 digits).');
+    valid = false;
+  }
+
+  if (!interestEl.value) {
+    setFieldError(interestEl, 'Please select your investment interest level.');
+    valid = false;
+  }
+
+  return valid;
+}
+
 if (form && formBtn) {
+  form.querySelectorAll('input, select').forEach(el => {
+    el.addEventListener('input', () => clearFieldError(el));
+  });
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+    if (!validateForm()) return;
+
     const orig = formBtn.textContent;
     formBtn.textContent = 'Sending…';
     formBtn.disabled = true;
@@ -102,14 +151,14 @@ if (form && formBtn) {
       access_key: WEB3FORMS_KEY,
       subject: 'New Investor Signup — Lone Star Capital Partners',
       from_name: 'Lone Star Capital Partners Website',
-      name:     form.querySelector('[name="name"]').value,
-      email:    form.querySelector('[name="email"]').value,
-      phone:    form.querySelector('[name="phone"]').value,
+      name:     form.querySelector('[name="name"]').value.trim(),
+      email:    form.querySelector('[name="email"]').value.trim(),
+      phone:    form.querySelector('[name="phone"]').value.trim(),
       interest: form.querySelector('[name="interest"]').value,
     };
 
     try {
-      const res = await fetch('https://api.web3forms.com/submit', {
+      const res  = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify(payload),
