@@ -89,7 +89,7 @@ document.querySelectorAll('.project-card').forEach(c => barObs.observe(c));
 const form    = document.getElementById('signupForm');
 const formBtn = document.getElementById('formBtn');
 
-const WEB3FORMS_KEY = 'REPLACE_WITH_YOUR_ACCESS_KEY';
+const WEB3FORMS_KEY = '95b2c17b-007d-4f9f-b814-bab04e6efbf5';
 
 if (form && formBtn) {
   form.addEventListener('submit', async (e) => {
