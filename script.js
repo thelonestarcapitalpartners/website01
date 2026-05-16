@@ -84,26 +84,59 @@ const barObs = new IntersectionObserver((entries) => {
 document.querySelectorAll('.project-card').forEach(c => barObs.observe(c));
 
 /* ============================================================
-   FORM SUBMISSION
+   FORM SUBMISSION — Web3Forms
    ============================================================ */
 const form    = document.getElementById('signupForm');
 const formBtn = document.getElementById('formBtn');
 
+const WEB3FORMS_KEY = 'REPLACE_WITH_YOUR_ACCESS_KEY';
+
 if (form && formBtn) {
-  form.addEventListener('submit', e => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const orig = formBtn.textContent;
-
-    formBtn.textContent = "You're In — Welcome to the Network";
-    formBtn.style.cssText = 'background:#16a34a;border-color:#16a34a;';
+    formBtn.textContent = 'Sending…';
     formBtn.disabled = true;
 
-    setTimeout(() => {
-      formBtn.textContent = orig;
-      formBtn.style.cssText = '';
-      formBtn.disabled = false;
-      form.reset();
-    }, 4500);
+    const payload = {
+      access_key: WEB3FORMS_KEY,
+      subject: 'New Investor Signup — Lone Star Capital Partners',
+      from_name: 'Lone Star Capital Partners Website',
+      name:     form.querySelector('[name="name"]').value,
+      email:    form.querySelector('[name="email"]').value,
+      phone:    form.querySelector('[name="phone"]').value,
+      interest: form.querySelector('[name="interest"]').value,
+    };
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const json = await res.json();
+
+      if (res.ok && json.success) {
+        formBtn.textContent = "You're In — Welcome to the Network";
+        formBtn.style.cssText = 'background:#16a34a;border-color:#16a34a;color:#fff;';
+        setTimeout(() => {
+          formBtn.textContent = orig;
+          formBtn.style.cssText = '';
+          formBtn.disabled = false;
+          form.reset();
+        }, 4500);
+      } else {
+        throw new Error(json.message || 'Submission failed');
+      }
+    } catch {
+      formBtn.textContent = 'Something went wrong — try again';
+      formBtn.style.cssText = 'background:#dc2626;border-color:#dc2626;color:#fff;';
+      setTimeout(() => {
+        formBtn.textContent = orig;
+        formBtn.style.cssText = '';
+        formBtn.disabled = false;
+      }, 3500);
+    }
   });
 }
 
