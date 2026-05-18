@@ -207,3 +207,31 @@ const sectionObs = new IntersectionObserver((entries) => {
 }, { threshold: 0.4 });
 
 sections.forEach(s => sectionObs.observe(s));
+
+/* ============================================================
+   VIDEO MODAL
+   ============================================================ */
+const videoModal   = document.getElementById('videoModal');
+const videoPlayer  = document.getElementById('videoModalPlayer');
+const modalClose   = document.getElementById('videoModalClose');
+const modalOverlay = videoModal.querySelector('.video-modal-overlay');
+
+function openVideo(src) {
+  videoPlayer.src = src;
+  videoModal.classList.add('active');
+  videoPlayer.play().catch(() => {});
+}
+
+function closeVideo() {
+  videoModal.classList.remove('active');
+  videoPlayer.pause();
+  videoPlayer.src = '';
+}
+
+document.querySelectorAll('.video-thumb').forEach(thumb => {
+  thumb.addEventListener('click', () => openVideo(thumb.dataset.video));
+});
+
+modalClose.addEventListener('click', closeVideo);
+modalOverlay.addEventListener('click', closeVideo);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeVideo(); });

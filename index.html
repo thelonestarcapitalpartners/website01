@@ -240,10 +240,11 @@
         </div>
 
         <div class="project-card" data-animate>
-          <div class="project-img">
+          <div class="project-img video-thumb" data-video="brand_asset/Lancaster Homes.MOV">
             <div class="proj-bg lancaster-bg"></div>
             <div class="proj-badge">Active Builds</div>
             <div class="proj-location">📍 Lancaster, Texas</div>
+            <button class="proj-play-btn" aria-label="Play video">▶</button>
           </div>
           <div class="project-body">
             <div class="proj-meta">
@@ -267,10 +268,11 @@
         </div>
 
         <div class="project-card" data-animate>
-          <div class="project-img">
+          <div class="project-img video-thumb" data-video="brand_asset/Ennis.mov">
             <div class="proj-bg ennis-bg"></div>
             <div class="proj-badge">Active Development</div>
             <div class="proj-location">📍 Ennis, Texas</div>
+            <button class="proj-play-btn" aria-label="Play video">▶</button>
           </div>
           <div class="project-body">
             <div class="proj-meta">
@@ -619,6 +621,15 @@
       </div>
     </div>
   </footer>
+
+  <!-- VIDEO MODAL -->
+  <div class="video-modal" id="videoModal">
+    <div class="video-modal-overlay"></div>
+    <div class="video-modal-inner">
+      <button class="video-modal-close" id="videoModalClose">✕</button>
+      <video id="videoModalPlayer" controls playsinline></video>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>

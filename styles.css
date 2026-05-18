@@ -440,6 +440,53 @@ img { max-width: 100%; display: block; }
   font-size: 0.8rem; color: rgba(255,255,255,0.9); font-weight: 500;
 }
 
+/* ── Video play button on project card ── */
+.video-thumb { cursor: pointer; }
+.proj-play-btn {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 52px; height: 52px;
+  background: rgba(200,169,106,0.88);
+  border: none; border-radius: 50%;
+  color: var(--navy); font-size: 18px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; z-index: 3;
+  transition: background 0.2s ease, transform 0.2s ease;
+  padding-left: 3px;
+}
+.video-thumb:hover .proj-play-btn {
+  background: var(--red);
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* ── Video modal / lightbox ── */
+.video-modal {
+  position: fixed; inset: 0; z-index: 9999;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+.video-modal.active { opacity: 1; pointer-events: all; }
+.video-modal-overlay {
+  position: absolute; inset: 0;
+  background: rgba(10,22,40,0.92);
+}
+.video-modal-inner {
+  position: relative; z-index: 1;
+  width: 90vw; max-width: 960px;
+  background: #000;
+}
+.video-modal-inner video { width: 100%; display: block; max-height: 80vh; }
+.video-modal-close {
+  position: absolute; top: -40px; right: 0;
+  background: none; border: none;
+  color: var(--white); font-size: 22px;
+  cursor: pointer; font-family: var(--fb);
+  line-height: 1; padding: 4px 8px;
+  transition: color 0.2s;
+}
+.video-modal-close:hover { color: var(--red); }
+
 .project-body { padding: 22px; }
 .proj-meta { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
 .proj-type {
