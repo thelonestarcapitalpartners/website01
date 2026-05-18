@@ -399,9 +399,11 @@ img { max-width: 100%; display: block; }
 
 .projects-grid {
   display: grid;
-  grid-template-columns: 1.35fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 24px;
 }
+
+.project-card.featured { grid-column: 1 / -1; }
 
 .project-card {
   background: var(--white);
@@ -422,6 +424,7 @@ img { max-width: 100%; display: block; }
 .ovilla-bg    { background: linear-gradient(140deg,#d4a85a 0%,#8b6914 30%,#3d2a08 65%,#0A1628 100%); }
 .mansfield-bg { background: linear-gradient(140deg,#2d6a4f 0%,#1b4332 40%,#0a2318 80%,#0A1628 100%); }
 .lancaster-bg { background: linear-gradient(140deg,#c1440e 0%,#8b3a0f 30%,#2a0e00 65%,#0A1628 100%); }
+.ennis-bg     { background: linear-gradient(140deg,#7a9e6a 0%,#4a6836 30%,#1e3012 65%,#0A1628 100%); }
 
 .proj-badge {
   position: absolute; top: 12px; left: 12px;
@@ -463,6 +466,11 @@ img { max-width: 100%; display: block; }
 .spec { display: flex; flex-direction: column; gap: 2px; }
 .spec-n { font-family: var(--fh); font-size: 1.25rem; font-weight: 500; color: var(--red); }
 .spec-l { font-family: var(--fb); font-size: 10px; color: var(--mist); text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600; }
+
+.proj-updated {
+  font-family: var(--fb); font-size: 10px; color: rgba(10,22,40,0.35);
+  margin-top: 10px; letter-spacing: 0.08em; text-transform: uppercase;
+}
 
 .proj-progress { margin-bottom: 18px; }
 .progress-label {
@@ -747,7 +755,7 @@ img { max-width: 100%; display: block; }
   .process-step { width: 33.333%; padding: 0 20px; }
 
   .projects-grid { grid-template-columns: 1fr 1fr; }
-  .project-card.featured { grid-column: span 2; }
+  .project-card.featured { grid-column: 1 / -1; }
 
   .trans-inner, .invest-inner, .about-inner { grid-template-columns: 1fr; gap: 56px; }
 
