@@ -216,20 +216,18 @@ const videoPlayer  = document.getElementById('videoModalPlayer');
 const modalClose   = document.getElementById('videoModalClose');
 const modalOverlay = videoModal.querySelector('.video-modal-overlay');
 
-function openVideo(src) {
-  videoPlayer.src = src;
+function openVideo(ytId) {
+  videoPlayer.src = 'https://www.youtube.com/embed/' + ytId + '?autoplay=1&rel=0';
   videoModal.classList.add('active');
-  videoPlayer.play().catch(() => {});
 }
 
 function closeVideo() {
   videoModal.classList.remove('active');
-  videoPlayer.pause();
   videoPlayer.src = '';
 }
 
 document.querySelectorAll('.video-thumb').forEach(thumb => {
-  thumb.addEventListener('click', () => openVideo(thumb.dataset.video));
+  thumb.addEventListener('click', () => openVideo(thumb.dataset.yt));
 });
 
 modalClose.addEventListener('click', closeVideo);
