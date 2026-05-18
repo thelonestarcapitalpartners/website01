@@ -421,10 +421,10 @@ img { max-width: 100%; display: block; }
 }
 .project-card:hover .proj-bg { transform: scale(1.06); }
 
-.ovilla-bg    { background: linear-gradient(140deg,#d4a85a 0%,#8b6914 30%,#3d2a08 65%,#0A1628 100%); }
+.ovilla-bg    { background: #0A1628 url('https://img.youtube.com/vi/oOPb-NeK8ug/maxresdefault.jpg') center/cover no-repeat; }
 .mansfield-bg { background: linear-gradient(140deg,#2d6a4f 0%,#1b4332 40%,#0a2318 80%,#0A1628 100%); }
-.lancaster-bg { background: linear-gradient(140deg,#c1440e 0%,#8b3a0f 30%,#2a0e00 65%,#0A1628 100%); }
-.ennis-bg     { background: linear-gradient(140deg,#7a9e6a 0%,#4a6836 30%,#1e3012 65%,#0A1628 100%); }
+.lancaster-bg { background: #0A1628 url('https://img.youtube.com/vi/fOcrOzvu8ak/maxresdefault.jpg') center/cover no-repeat; }
+.ennis-bg     { background: #0A1628 url('https://img.youtube.com/vi/M5dX96jWqcQ/maxresdefault.jpg') center/cover no-repeat; }
 
 .proj-badge {
   position: absolute; top: 12px; left: 12px;
