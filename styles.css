@@ -600,7 +600,8 @@ img { max-width: 100%; display: block; }
 /* ============================================================
    MEDIA
    ============================================================ */
-.media-section { padding: var(--sp) 0; background: var(--off-alt); }
+/* HIDDEN — waiting for content: uncomment display line to restore */
+.media-section { display: none; padding: var(--sp) 0; background: var(--off-alt); }
 
 .media-grid {
   display: grid;
