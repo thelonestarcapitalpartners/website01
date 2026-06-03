@@ -361,7 +361,7 @@ img { max-width: 100%; display: block; }
 }
 .step-num {
   font-family: var(--fb); font-size: 10px; font-weight: 600;
-  color: var(--red); letter-spacing: 0.18em; margin-bottom: 16px; text-transform: uppercase;
+  color: var(--navy); letter-spacing: 0.18em; margin-bottom: 16px; text-transform: uppercase;
 }
 .step-icon-wrap {
   width: 56px; height: 56px;
@@ -381,7 +381,7 @@ img { max-width: 100%; display: block; }
   width: 36px; height: 1px;
   background: linear-gradient(to right, transparent, rgba(200,169,106,0.85), transparent);
 }
-.process-step:hover .step-icon-wrap { background: var(--off-alt); border-color: var(--red); transform: scale(1.06); }
+.process-step:hover .step-icon-wrap { background: var(--navy-l); border-color: var(--navy-l); transform: scale(1.06); }
 .step-icon { font-size: 1.25rem; }
 .process-step h3 {
   font-family: var(--fh); font-size: 1.15rem; font-weight: 400;
