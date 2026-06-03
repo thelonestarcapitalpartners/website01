@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gray's Creek Ranch Estates – Ovilla | Lone Star Capital Partners</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    :root { --sp-xl: 112px; }
+
+    /* ── Hero ── */
+    .ov-hero {
+      position: relative;
+      height: 100vh; min-height: 680px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      overflow: hidden; background: #0e1c2e;
+    }
+    .ov-hero-bg {
+      position: absolute; inset: 0;
+      background: url('ovilla/aerial-5.jpg') center/cover no-repeat;
+    }
+    .ov-hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(10,22,40,0.40) 0%,
+        rgba(10,22,40,0.30) 40%,
+        rgba(10,22,40,0.62) 100%
+      );
+    }
+    .ov-hero-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(200,169,106,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(200,169,106,0.03) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black, transparent);
+      -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black, transparent);
+    }
+    .ov-hero-content {
+      position: relative; z-index: 2;
+      text-align: center; padding: 0 32px;
+    }
+    .ov-eyebrow {
+      display: flex; align-items: center; gap: 20px;
+      justify-content: center; margin-bottom: 32px;
+    }
+    .ov-ey-line { width: 40px; height: 1px; background: rgba(200,169,106,0.5); }
+    .ov-ey-text {
+      font-family: var(--fb); font-size: 11px; font-weight: 600;
+      letter-spacing: 0.28em; text-transform: uppercase;
+      color: rgba(200,169,106,0.85);
+    }
+    .ov-hero h1 {
+      font-family: var(--fh);
+      font-size: clamp(2.6rem, 5.5vw, 5rem);
+      font-weight: 400; letter-spacing: 0.03em; line-height: 1.1;
+      color: #FFFFFF; margin-bottom: 20px;
+    }
+    .ov-hero-rule {
+      width: 56px; height: 1px; margin: 0 auto 24px;
+      background: linear-gradient(to right, transparent, rgba(200,169,106,0.7), transparent);
+    }
+    .ov-hero-subtitle {
+      font-family: var(--fh);
+      font-size: clamp(1.05rem, 1.9vw, 1.35rem);
+      font-weight: 300; letter-spacing: 0.03em;
+      color: rgba(255,255,255,0.85);
+      max-width: 640px; margin: 0 auto 14px; line-height: 1.55;
+    }
+    .ov-hero-text {
+      font-family: var(--fb);
+      font-size: 0.98rem; color: rgba(255,255,255,0.62);
+      max-width: 540px; margin: 0 auto 44px; line-height: 1.82;
+    }
+    .ov-hero-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .ov-hero-foot {
+      position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
+      padding: 0 56px 40px;
+      display: flex; justify-content: space-between; align-items: flex-end;
+    }
+    .ov-loc-tag {
+      display: flex; align-items: center; gap: 10px;
+      font-family: var(--fb); font-size: 10px; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+    }
+    .ov-loc-dot { width: 6px; height: 6px; border-radius: 50%; background: #C8A96A; }
+    .ov-scroll-cue {
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+    }
+    .ov-scroll-label {
+      font-family: var(--fb); font-size: 9px; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(255,255,255,0.3); writing-mode: vertical-rl;
+    }
+    .ov-scroll-line {
+      width: 1px; height: 44px;
+      background: linear-gradient(to bottom, rgba(200,169,106,0.5), transparent);
+      animation: scanDown 2.4s ease infinite;
+    }
+
+    /* ── Section wrappers ── */
+    .ov-section      { padding: var(--sp-xl) 0; background: #FFFFFF; }
+    .ov-section-warm { padding: var(--sp-xl) 0; background: #F5F3EF; }
+    .ov-section-alt  { padding: var(--sp-xl) 0; background: #EDEBE6; }
+    .ov-section-dark { padding: var(--sp-xl) 0; background: #0A1628; }
+    .ov-section-mid  { padding: var(--sp-xl) 0; background: #1C2E4A; }
+
+    .ov-center  { text-align: center; }
+    .ov-max-prose { max-width: 720px; margin: 0 auto; }
+
+    .ov-label {
+      display: block; font-family: var(--fb); font-size: 10px; font-weight: 600;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: #C8A96A; margin-bottom: 16px;
+    }
+    .ov-h2 {
+      font-family: var(--fh);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 400; letter-spacing: 0.03em; line-height: 1.15;
+      color: #0A1628; margin-bottom: 24px;
+    }
+    .ov-h2-white { color: #FFFFFF; }
+    .ov-lead { font-family: var(--fb); font-size: 1.02rem; color: #1A1A1A; line-height: 1.8; }
+    .ov-lead-white { color: rgba(255,255,255,0.82); }
+    .ov-rule-center {
+      width: 48px; height: 1px; margin: 28px auto 0;
+      background: linear-gradient(to right, transparent, rgba(200,169,106,0.6), transparent);
+    }
+
+    /* ── Feature cards (Sections 2 & 6) ── */
+    .ov-card-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; background: rgba(10,22,40,0.08);
+      border: 1px solid rgba(10,22,40,0.08);
+      overflow: hidden; margin-top: 64px;
+    }
+    .ov-card {
+      background: #FFFFFF; padding: 36px 28px;
+      display: flex; flex-direction: column;
+      transition: background 0.28s ease;
+    }
+    .ov-card:hover { background: #F5F3EF; }
+    .ov-card-icon {
+      width: 52px; height: 52px;
+      background: #F5F3EF; border: 1.5px solid #0A1628;
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; margin-bottom: 26px; position: relative; flex-shrink: 0;
+    }
+    .ov-card-icon::after {
+      content: ''; position: absolute; bottom: -10px; left: 50%;
+      transform: translateX(-50%);
+      width: 30px; height: 1px;
+      background: linear-gradient(to right, transparent, rgba(200,169,106,0.8), transparent);
+    }
+    .ov-card h3 {
+      font-family: var(--fh); font-size: 1.15rem; font-weight: 400;
+      color: #0A1628; letter-spacing: 0.02em; line-height: 1.3; margin-bottom: 10px;
+    }
+    .ov-card p {
+      font-family: var(--fb); font-size: 0.865rem;
+      color: rgba(10,22,40,0.55); line-height: 1.7;
+    }
+
+    /* Market position cards — alt bg */
+    .ov-card-grid--alt .ov-card { background: #EDEBE6; }
+    .ov-card-grid--alt .ov-card:hover { background: #E5E2DD; }
+    .ov-card-grid--alt .ov-card-icon { background: #EDEBE6; }
+
+    /* ── Vision / media section ── */
+    .ov-vision-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 16px; margin-top: 64px;
+    }
+    .ov-vision-main {
+      grid-row: span 2; position: relative;
+      overflow: hidden; background: #1C2E4A;
+    }
+    .ov-vision-main img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.55s ease;
+    }
+    .ov-vision-main:hover img { transform: scale(1.04); }
+    .ov-vision-tile {
+      position: relative; overflow: hidden;
+      background: #1C2E4A; aspect-ratio: 16/9;
+    }
+    .ov-vision-tile img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.55s ease;
+    }
+    .ov-vision-tile:hover img { transform: scale(1.04); }
+    .ov-img-caption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 10px 14px;
+      background: linear-gradient(to top, rgba(10,22,40,0.75), transparent);
+      font-family: var(--fb); font-size: 9px; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(200,169,106,0.85);
+    }
+    .ov-vision-placeholder {
+      aspect-ratio: 16/9; background: #1C2E4A;
+      border: 0.5px solid rgba(200,169,106,0.1);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 12px;
+    }
+    .ov-vision-placeholder .ov-ph-icon { font-size: 1.8rem; opacity: 0.35; }
+    .ov-ph-label {
+      font-family: var(--fb); font-size: 10px; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(200,169,106,0.5);
+    }
+    .ov-ph-sub {
+      font-family: var(--fb); font-size: 9px;
+      color: rgba(255,255,255,0.2); letter-spacing: 0.1em; text-transform: uppercase;
+    }
+
+    /* ── Timeline ── */
+    .ov-timeline {
+      display: flex; flex-direction: column; gap: 0;
+      max-width: 700px; margin: 60px auto 0;
+      position: relative;
+    }
+    .ov-timeline::before {
+      content: ''; position: absolute;
+      top: 12px; bottom: 12px; left: 11px;
+      width: 1px; background: rgba(10,22,40,0.12);
+    }
+    .ov-tl-item {
+      display: flex; gap: 28px; align-items: flex-start;
+      padding: 0 0 34px; position: relative; z-index: 1;
+    }
+    .ov-tl-item:last-child { padding-bottom: 0; }
+    .ov-tl-dot-col { flex-shrink: 0; width: 24px; padding-top: 3px; display: flex; justify-content: center; }
+    .ov-tl-dot { width: 12px; height: 12px; border-radius: 50%; }
+    .ov-tl-dot--done   { background: #C8A96A; border: 2px solid #C8A96A; }
+    .ov-tl-dot--now    { background: #FFF; border: 2.5px solid #C8A96A;
+                          box-shadow: 0 0 0 4px rgba(200,169,106,0.18);
+                          animation: pulseGold 2s ease infinite; }
+    .ov-tl-dot--future { background: transparent; border: 2px solid rgba(10,22,40,0.2); }
+    @keyframes pulseGold {
+      0%,100% { box-shadow: 0 0 0 4px rgba(200,169,106,0.18); }
+      50%      { box-shadow: 0 0 0 8px rgba(200,169,106,0.07); }
+    }
+    .ov-tl-body { flex: 1; }
+    .ov-tl-status {
+      font-family: var(--fb); font-size: 9px; font-weight: 600;
+      letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 5px;
+    }
+    .ov-tl-status--done   { color: #C8A96A; }
+    .ov-tl-status--now    { color: #0A1628; }
+    .ov-tl-status--future { color: rgba(10,22,40,0.28); }
+    .ov-tl-title {
+      font-family: var(--fh); font-size: 1.2rem; font-weight: 400;
+      color: #0A1628; letter-spacing: 0.02em; margin-bottom: 6px;
+    }
+    .ov-tl-title--future { color: rgba(10,22,40,0.38); }
+    .ov-tl-desc {
+      font-family: var(--fb); font-size: 0.865rem;
+      color: rgba(10,22,40,0.5); line-height: 1.65;
+    }
+    .ov-tl-desc--future { color: rgba(10,22,40,0.28); }
+
+    /* ── Location highlights ── */
+    .ov-location-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+    }
+    .ov-highlights { display: flex; flex-direction: column; margin-top: 36px; }
+    .ov-hi-item {
+      display: flex; align-items: center; gap: 16px;
+      padding: 15px 0; border-bottom: 0.5px solid rgba(10,22,40,0.1);
+    }
+    .ov-hi-item:last-child { border-bottom: none; }
+    .ov-hi-dot { width: 7px; height: 7px; border-radius: 50%; background: #C8A96A; flex-shrink: 0; }
+    .ov-hi-text { font-family: var(--fb); font-size: 0.92rem; color: #1A1A1A; font-weight: 500; }
+    .ov-map-wrap {
+      position: relative; overflow: hidden;
+      border: 0.5px solid rgba(10,22,40,0.12); height: 440px;
+    }
+    .ov-map-wrap iframe { width: 100%; height: 100%; border: none; display: block; filter: grayscale(12%); }
+    .ov-map-label {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 11px 18px; background: rgba(10,22,40,0.85);
+      font-family: var(--fb); font-size: 10px; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase; color: rgba(200,169,106,0.85);
+    }
+
+    /* ── Comparable Market table ── */
+    .ov-comp-wrap {
+      margin-top: 56px; overflow-x: auto;
+      border: 0.5px solid rgba(10,22,40,0.1);
+    }
+    .ov-comp-table {
+      width: 100%; border-collapse: collapse;
+      font-family: var(--fb); font-size: 0.875rem;
+    }
+    .ov-comp-table thead tr {
+      background: #0A1628;
+    }
+    .ov-comp-table thead th {
+      padding: 14px 20px;
+      font-size: 9px; font-weight: 600;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: rgba(200,169,106,0.8);
+      text-align: left; white-space: nowrap;
+      border-right: 0.5px solid rgba(200,169,106,0.08);
+    }
+    .ov-comp-table thead th:last-child { border-right: none; }
+    .ov-comp-table tbody tr {
+      border-bottom: 0.5px solid rgba(10,22,40,0.08);
+      transition: background 0.2s ease;
+    }
+    .ov-comp-table tbody tr:hover { background: #F5F3EF; }
+    .ov-comp-table tbody td {
+      padding: 14px 20px; color: #1A1A1A;
+      border-right: 0.5px solid rgba(10,22,40,0.06);
+      vertical-align: middle;
+    }
+    .ov-comp-table tbody td:last-child { border-right: none; }
+    .ov-comp-ph {
+      color: rgba(10,22,40,0.25); font-style: italic; font-size: 0.8rem;
+    }
+    .ov-comp-tag {
+      display: inline-block; font-size: 9px; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: #C8A96A; background: rgba(200,169,106,0.1);
+      padding: 3px 8px;
+    }
+    .ov-comp-note {
+      margin-top: 16px; text-align: center;
+      font-family: var(--fb); font-size: 10px; font-weight: 600;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(10,22,40,0.3);
+    }
+
+    /* ── Gallery ── */
+    .ov-gallery-hero {
+      width: 100%; aspect-ratio: 21/9; overflow: hidden;
+      position: relative; margin-bottom: 16px;
+    }
+    .ov-gallery-hero img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      object-position: center 55%;
+    }
+    .ov-gallery-hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,22,40,0.45), transparent 55%);
+    }
+    .ov-gallery-hero-label {
+      position: absolute; bottom: 24px; left: 32px;
+      font-family: var(--fb); font-size: 10px; font-weight: 600;
+      letter-spacing: 0.22em; text-transform: uppercase; color: rgba(200,169,106,0.9);
+    }
+    .ov-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .ov-gallery-tile {
+      position: relative; overflow: hidden;
+      aspect-ratio: 4/3; background: #1C2E4A;
+    }
+    .ov-gallery-tile img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.55s ease;
+    }
+    .ov-gallery-tile:hover img { transform: scale(1.05); }
+    .ov-gallery-tile .ov-img-caption { font-size: 9px; padding: 10px 14px; }
+
+    /* ── Team section ── */
+    .ov-team-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+    }
+    .ov-team-text h2 { color: #FFFFFF; margin-bottom: 18px; }
+    .ov-team-text p {
+      font-family: var(--fb); font-size: 1rem;
+      color: rgba(255,255,255,0.82); line-height: 1.8; margin-bottom: 32px;
+    }
+    .ov-team-faces {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+    }
+    .ov-face {
+      aspect-ratio: 1/1; overflow: hidden;
+      background: #1C2E4A; border: 0.5px solid rgba(200,169,106,0.15);
+    }
+    .ov-face img {
+      width: 100%; height: 100%; object-fit: cover;
+      object-position: center top; display: block;
+      filter: grayscale(20%); transition: filter 0.3s ease;
+    }
+    .ov-face:hover img { filter: grayscale(0); }
+
+    /* ── Contact ── */
+    .ov-contact-inner { max-width: 620px; margin: 0 auto; text-align: center; }
+    .ov-contact-inner p {
+      font-family: var(--fb); font-size: 1.02rem;
+      color: rgba(10,22,40,0.58); line-height: 1.8; margin-bottom: 44px;
+    }
+    .ov-contact-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+    /* ── Responsive ── */
+    @media (max-width: 1024px) {
+      .ov-card-grid  { grid-template-columns: repeat(2, 1fr); }
+      .ov-vision-grid { grid-template-columns: 1fr; }
+      .ov-vision-main { grid-row: auto; aspect-ratio: 16/9; }
+      .ov-location-inner { grid-template-columns: 1fr; gap: 52px; }
+      .ov-map-wrap { height: 380px; }
+      .ov-team-inner { grid-template-columns: 1fr; gap: 52px; }
+      .ov-gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      :root { --sp-xl: 72px; }
+      .ov-hero h1 { font-size: 2.4rem; }
+      .ov-card-grid { grid-template-columns: 1fr; }
+      .ov-gallery-grid { grid-template-columns: 1fr 1fr; }
+      .ov-hero-foot { padding: 0 24px 28px; }
+      .ov-hero-ctas { flex-direction: column; align-items: center; }
+      .ov-hero-ctas .btn { width: 100%; max-width: 300px; justify-content: center; }
+      .ov-comp-table { font-size: 0.78rem; }
+      .ov-comp-table thead th, .ov-comp-table tbody td { padding: 10px 12px; }
+    }
+    @media (max-width: 480px) {
+      .ov-gallery-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="logo.png" alt="Lone Star Capital Partners" class="nav-logo-img">
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#process">Process</a></li>
+        <li class="has-dropdown">
+          <a href="index.html#projects">Projects <span class="dd-chevron">▼</span></a>
+          <div class="nav-dropdown">
+            <div class="nav-dd-header">
+              <span>Active Portfolio</span>
+              <a href="index.html#projects">View All →</a>
+            </div>
+            <a href="grays-creek-ovilla.html" class="nav-dd-item">
+              <span class="nav-dd-dot nav-dd-dot--active"></span>
+              <span class="nav-dd-info">
+                <span class="nav-dd-name">Gray's Creek – Ovilla</span>
+                <span class="nav-dd-loc">Ovilla, Texas &nbsp;·&nbsp; 27 One-Acre Lots</span>
+              </span>
+              <span class="nav-dd-arrow">↗</span>
+            </a>
+            <a href="index.html#projects" class="nav-dd-item">
+              <span class="nav-dd-dot nav-dd-dot--active"></span>
+              <span class="nav-dd-info">
+                <span class="nav-dd-name">Mansfield Community</span>
+                <span class="nav-dd-loc">Mansfield, Texas &nbsp;·&nbsp; 12 Luxury Homes</span>
+              </span>
+            </a>
+            <a href="index.html#projects" class="nav-dd-item">
+              <span class="nav-dd-dot nav-dd-dot--active"></span>
+              <span class="nav-dd-info">
+                <span class="nav-dd-name">Lancaster Homes</span>
+                <span class="nav-dd-loc">Lancaster, Texas &nbsp;·&nbsp; 20 Homes</span>
+              </span>
+            </a>
+            <div class="nav-dd-sep"></div>
+            <a href="grays-creek-ennis.html" class="nav-dd-item">
+              <span class="nav-dd-dot nav-dd-dot--active"></span>
+              <span class="nav-dd-info">
+                <span class="nav-dd-name">Gray's Creek – Ennis</span>
+                <span class="nav-dd-loc">Ennis, Texas &nbsp;·&nbsp; 60+ Homes Planned</span>
+              </span>
+              <span class="nav-dd-arrow">↗</span>
+            </a>
+          </div>
+        </li>
+        <li><a href="index.html#transparency">Transparency</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="index.html#invest" class="nav-inquiry-mobile">Investor Inquiries</a></li>
+      </ul>
+      <a href="index.html#invest" class="nav-inquiry">Investor Inquiries</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ══ SECTION 1 — HERO ══ -->
+  <section class="ov-hero" id="home">
+    <div class="ov-hero-bg"></div>
+    <div class="ov-hero-overlay"></div>
+    <div class="ov-hero-grid"></div>
+
+    <div class="ov-hero-content" data-animate>
+      <div class="ov-eyebrow">
+        <span class="ov-ey-line"></span>
+        <span class="ov-ey-text">Ovilla, Texas &nbsp;·&nbsp; Ellis County</span>
+        <span class="ov-ey-line"></span>
+      </div>
+      <h1>Gray's Creek<br>Ranch Estates</h1>
+      <div class="ov-hero-rule"></div>
+      <p class="ov-hero-subtitle">A planned residential community featuring spacious one-acre homesites in one of Ellis County's most desirable growth areas.</p>
+      <p class="ov-hero-text">Located in Ovilla, Texas, this development is designed for families seeking land, privacy, and a peaceful residential setting with access to the Dallas–Fort Worth metroplex.</p>
+      <div class="ov-hero-ctas">
+        <a href="#community" class="btn btn-gold">View Community</a>
+        <a href="#contact" class="btn btn-ghost">Contact Us</a>
+      </div>
+    </div>
+
+    <div class="ov-hero-foot">
+      <div class="ov-loc-tag">
+        <span class="ov-loc-dot"></span>
+        Gray's Creek Ranch Estates &nbsp;·&nbsp; Ovilla, TX &nbsp;·&nbsp; Ellis County
+      </div>
+      <div class="ov-scroll-cue">
+        <span class="ov-scroll-label">Scroll</span>
+        <div class="ov-scroll-line"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SECTION 2 — COMMUNITY OVERVIEW ══ -->
+  <section class="ov-section" id="community">
+    <div class="container">
+      <div class="ov-center ov-max-prose" data-animate>
+        <span class="ov-label">Community Overview</span>
+        <h2 class="ov-h2">A Spacious Residential<br>Community in Ovilla</h2>
+        <p class="ov-lead">Gray's Creek Ranch Estates – Ovilla is planned as a residential community centered around large homesites, thoughtful design, and a quiet North Texas lifestyle. The project is positioned for buyers who want more space without losing access to nearby cities, schools, shopping, and employment centers.</p>
+        <div class="ov-rule-center"></div>
+      </div>
+      <div class="ov-card-grid">
+        <div class="ov-card" data-animate>
+          <div class="ov-card-icon">🏘️</div>
+          <h3>Planned Residential Community</h3>
+          <p>A thoughtfully designed residential community built around the character and scale of the Ovilla area.</p>
+        </div>
+        <div class="ov-card" data-animate>
+          <div class="ov-card-icon">🌳</div>
+          <h3>One-Acre Homesites</h3>
+          <p>27 city-approved one-acre lots offering generous space, privacy, and the feel of land ownership.</p>
+        </div>
+        <div class="ov-card" data-animate>
+          <div class="ov-card-icon">📍</div>
+          <h3>Located in Ovilla, Texas</h3>
+          <p>Ovilla is one of Ellis County's most established and desirable small communities — known for its quiet residential character.</p>
+        </div>
+        <div class="ov-card" data-animate>
+          <div class="ov-card-icon">📈</div>
+          <h3>Ellis County Growth Market</h3>
+          <p>Part of one of the fastest-growing counties in North Texas, with continued residential demand and infrastructure investment.</p>
+        </div>
+        <div class="ov-card" data-animate>
+          <div class="ov-card-icon">🌿</div>
+          <h3>Peaceful Residential Setting</h3>
+          <p>Designed for families seeking a quieter pace of life, with space, trees, and the natural landscape of central Texas.</p>
+        </div>
+        <div class="ov-card" data-animate>
+          <div class="ov-card-icon">🚗</div>
+          <h3>Access to DFW Metroplex</h3>
+          <p>Strategically located for convenient access to Dallas, Midlothian, Waxahachie, Red Oak, and major employment centers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SECTION 3 — PROJECT VISION ══ -->
+  <section class="ov-section-dark" id="vision">
+    <div class="container">
+      <div class="ov-center ov-max-prose" style="margin-bottom:64px;" data-animate>
+        <span class="ov-label">Project Vision</span>
+        <h2 class="ov-h2 ov-h2-white">Designed for Land,<br>Privacy, and Lifestyle</h2>
+        <p class="ov-lead ov-lead-white">The Ovilla community is designed for homeowners who value space, privacy, and a stronger connection to the land. With larger homesites and a thoughtfully planned layout, the project offers a residential experience that feels private, refined, and connected to the natural character of the area.</p>
+      </div>
+      <div class="ov-vision-grid">
+        <!-- Main tall image -->
+        <div class="ov-vision-main" data-animate>
+          <img src="ovilla/aerial-6.jpg" alt="Ovilla — Property overview with DFW visible">
+          <div class="ov-img-caption">Aerial Overview — Ovilla, Texas</div>
+        </div>
+        <!-- Right column tiles -->
+        <div class="ov-vision-tile" data-animate>
+          <img src="ovilla/aerial-2.jpg" alt="Land aerial — wide view">
+          <div class="ov-img-caption">Site Boundary & Surrounding Community</div>
+        </div>
+        <div class="ov-vision-tile" data-animate>
+          <img src="ovilla/aerial-3.jpg" alt="Aerial — fence lines and property access">
+          <div class="ov-img-caption">Property Access & Fence Lines</div>
+        </div>
+      </div>
+      <!-- Video feature row -->
+      <div style="margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div class="ov-vision-tile" style="aspect-ratio:16/9;cursor:pointer;" id="ov-video-trigger" data-animate>
+          <img src="https://img.youtube.com/vi/oOPb-NeK8ug/maxresdefault.jpg" alt="Ovilla aerial video" style="object-position:center;">
+          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:56px;height:56px;background:rgba(200,169,106,0.9);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#0A1628;font-size:18px;padding-left:4px;transition:transform 0.25s ease;">▶</div>
+          <div class="ov-img-caption">Aerial Footage — Gray's Creek Ovilla</div>
+        </div>
+        <div class="ov-vision-placeholder" data-animate>
+          <div class="ov-ph-icon">🗺️</div>
+          <div class="ov-ph-label">Community Plat</div>
+          <div class="ov-ph-sub">Available upon request</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SECTION 4 — DEVELOPMENT PROGRESS ══ -->
+  <section class="ov-section-alt" id="progress">
+    <div class="container">
+      <div class="ov-center ov-max-prose" data-animate>
+        <span class="ov-label">Development Timeline</span>
+        <h2 class="ov-h2">Project Progress</h2>
+        <p class="ov-lead">A clear picture of where the Ovilla development stands today, and the path ahead.</p>
+        <div class="ov-rule-center"></div>
+      </div>
+      <div class="ov-timeline">
+        <div class="ov-tl-item" data-animate>
+          <div class="ov-tl-dot-col"><div class="ov-tl-dot ov-tl-dot--done"></div></div>
+          <div class="ov-tl-body">
+            <div class="ov-tl-status ov-tl-status--done">Completed</div>
+            <div class="ov-tl-title">Land Acquired</div>
+            <p class="ov-tl-desc">Property secured in Ovilla, Ellis County. Title, surveys, and due diligence completed.</p>
+          </div>
+        </div>
+        <div class="ov-tl-item" data-animate>
+          <div class="ov-tl-dot-col"><div class="ov-tl-dot ov-tl-dot--done"></div></div>
+          <div class="ov-tl-body">
+            <div class="ov-tl-status ov-tl-status--done">Completed</div>
+            <div class="ov-tl-title">Development Planning Underway</div>
+            <p class="ov-tl-desc">Community layout, lot configuration, and phasing strategy established with the development and engineering team.</p>
+          </div>
+        </div>
+        <div class="ov-tl-item" data-animate>
+          <div class="ov-tl-dot-col"><div class="ov-tl-dot ov-tl-dot--done"></div></div>
+          <div class="ov-tl-body">
+            <div class="ov-tl-status ov-tl-status--done">Completed</div>
+            <div class="ov-tl-title">Subdivision Concept Established</div>
+            <p class="ov-tl-desc">Community site plan and subdivision concept finalized, defining lot boundaries, access, and community flow.</p>
+          </div>
+        </div>
+        <div class="ov-tl-item" data-animate>
+          <div class="ov-tl-dot-col"><div class="ov-tl-dot ov-tl-dot--done"></div></div>
+          <div class="ov-tl-body">
+            <div class="ov-tl-status ov-tl-status--done">Completed</div>
+            <div class="ov-tl-title">City Approval — 27 One-Acre Lots</div>
+            <p class="ov-tl-desc">City of Ovilla approval secured for 27 one-acre residential lots. A significant milestone confirming the community's development path.</p>
+          </div>
+        </div>
+        <div class="ov-tl-item" data-animate>
+          <div class="ov-tl-dot-col"><div class="ov-tl-dot ov-tl-dot--now"></div></div>
+          <div class="ov-tl-body">
+            <div class="ov-tl-status ov-tl-status--now">In Progress</div>
+            <div class="ov-tl-title">Replatting &amp; Infrastructure Preparation</div>
+            <p class="ov-tl-desc">Active replatting process underway. Infrastructure planning, engineering coordination, and permitting in progress.</p>
+          </div>
+        </div>
+        <div class="ov-tl-item" data-animate>
+          <div class="ov-tl-dot-col"><div class="ov-tl-dot ov-tl-dot--now"></div></div>
+          <div class="ov-tl-body">
+            <div class="ov-tl-status ov-tl-status--now">In Progress</div>
+            <div class="ov-tl-title">Engineering &amp; Development Coordination</div>
+            <p class="ov-tl-desc">Civil engineering, utility coordination, and development planning being finalized through HCE Engineering and project partners.</p>
+          </div>
+        </div>
+        <div class="ov-tl-item" data-animate>
+          <div class="ov-tl-dot-col"><div class="ov-tl-dot ov-tl-dot--future"></div></div>
+          <div class="ov-tl-body">
+            <div class="ov-tl-status ov-tl-status--future">Future</div>
+            <div class="ov-tl-title ov-tl-title--future">Infrastructure &amp; Road Construction</div>
+            <p class="ov-tl-desc ov-tl-desc--future">Road improvements and utility infrastructure to be constructed following completion of the replatting process.</p>
+          </div>
+        </div>
+        <div class="ov-tl-item" data-animate>
+          <div class="ov-tl-dot-col"><div class="ov-tl-dot ov-tl-dot--future"></div></div>
+          <div class="ov-tl-body">
+            <div class="ov-tl-status ov-tl-status--future">Future</div>
+            <div class="ov-tl-title ov-tl-title--future">Home Construction Phases</div>
+            <p class="ov-tl-desc ov-tl-desc--future">Phased residential construction across the 27 approved homesites with custom and semi-custom home options.</p>
+          </div>
+        </div>
+        <div class="ov-tl-item" data-animate>
+          <div class="ov-tl-dot-col"><div class="ov-tl-dot ov-tl-dot--future"></div></div>
+          <div class="ov-tl-body">
+            <div class="ov-tl-status ov-tl-status--future">Future</div>
+            <div class="ov-tl-title ov-tl-title--future">Community Sales &amp; Marketing Launch</div>
+            <p class="ov-tl-desc ov-tl-desc--future">Sales, MLS listing, broker outreach, and marketing launch for completed homesites and new construction homes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SECTION 5 — WHY OVILLA ══ -->
+  <section class="ov-section" id="location">
+    <div class="container">
+      <div class="ov-location-inner">
+        <div data-animate>
+          <span class="ov-label">Location</span>
+          <h2 class="ov-h2">Why Ovilla</h2>
+          <p class="ov-lead">Ovilla is one of Ellis County's most attractive residential communities, known for its quiet setting, larger properties, and access to nearby cities throughout the Dallas–Fort Worth region. The area appeals to buyers seeking a balance between small-town living, land ownership, and regional convenience.</p>
+          <div class="ov-highlights">
+            <div class="ov-hi-item"><span class="ov-hi-dot"></span><span class="ov-hi-text">Located in Ellis County</span></div>
+            <div class="ov-hi-item"><span class="ov-hi-dot"></span><span class="ov-hi-text">Peaceful residential community with established character</span></div>
+            <div class="ov-hi-item"><span class="ov-hi-dot"></span><span class="ov-hi-text">Access to Midlothian, Waxahachie, Red Oak, and Dallas</span></div>
+            <div class="ov-hi-item"><span class="ov-hi-dot"></span><span class="ov-hi-text">Strong demand for larger residential lots</span></div>
+            <div class="ov-hi-item"><span class="ov-hi-dot"></span><span class="ov-hi-text">Family-oriented community with quality schools nearby</span></div>
+            <div class="ov-hi-item"><span class="ov-hi-dot"></span><span class="ov-hi-text">North Texas growth corridor</span></div>
+          </div>
+        </div>
+        <div data-animate>
+          <div class="ov-map-wrap">
+            <iframe
+              src="https://maps.google.com/maps?q=Ovilla,+TX+75154&t=k&z=12&ie=UTF8&iwloc=&output=embed"
+              allowfullscreen loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            <div class="ov-map-label">📍 Ovilla, Texas — Ellis County</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SECTION 6 — MARKET POSITION ══ -->
+  <section class="ov-section-alt" id="market">
+    <div class="container">
+      <div class="ov-center ov-max-prose" data-animate>
+        <span class="ov-label">Market Position</span>
+        <h2 class="ov-h2">Positioned in a Growing<br>Residential Corridor</h2>
+        <p class="ov-lead">As growth continues south of Dallas, communities like Ovilla are attracting buyers who want more land, privacy, and a higher-quality residential lifestyle. The demand for acreage homesites continues to support thoughtfully planned communities across Ellis County.</p>
+        <div class="ov-rule-center"></div>
+      </div>
+      <div class="ov-card-grid ov-card-grid--alt">
+        <div class="ov-card" data-animate>
+          <div class="ov-card-icon">📈</div>
+          <h3>DFW Southward Growth</h3>
+          <p>The Dallas–Fort Worth metropolitan area continues expanding southward, bringing infrastructure, employment, and residential demand to Ellis County.</p>
+        </div>
+        <div class="ov-card" data-animate>
+          <div class="ov-card-icon">🌾</div>
+          <h3>Demand for Acreage Living</h3>
+          <p>Post-pandemic lifestyle shifts have sustained strong buyer interest in larger lots, more space, and lower-density communities across North Texas.</p>
+        </div>
+        <div class="ov-card" data-animate>
+          <div class="ov-card-icon">🛣️</div>
+          <h3>Strong Regional Connectivity</h3>
+          <p>Convenient access to major roadways including US-287 and I-35E connects Ovilla residents to employment and amenity centers across the region.</p>
+        </div>
+        <div class="ov-card" data-animate>
+          <div class="ov-card-icon">🏡</div>
+          <h3>Limited Supply of Large-Lot Communities</h3>
+          <p>Quality one-acre communities in established areas like Ovilla remain limited, supporting sustained buyer interest and long-term community value.</p>
+        </div>
+        <div class="ov-card" data-animate>
+          <div class="ov-card-icon">⭐</div>
+          <h3>Attractive Lifestyle Market</h3>
+          <p>Ovilla offers the lifestyle appeal of a smaller community — trees, space, quiet streets — with proximity to all major DFW amenities.</p>
+        </div>
+        <div class="ov-card" data-animate>
+          <div class="ov-card-icon">🔒</div>
+          <h3>Long-Term Community Value</h3>
+          <p>Established communities with larger lots and thoughtful planning tend to hold long-term residential appeal and value over time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SECTION 7 — COMPARABLE MARKET SUPPORT ══ -->
+  <section class="ov-section-warm" id="comps">
+    <div class="container">
+      <div class="ov-center ov-max-prose" data-animate>
+        <span class="ov-label">Market Support</span>
+        <h2 class="ov-h2">Comparable Market Activity</h2>
+        <p class="ov-lead">Comparable residential and land activity in the surrounding Ellis County market supports demand for larger homesites, custom homes, and low-density residential communities.</p>
+        <div class="ov-rule-center"></div>
+      </div>
+      <div class="ov-comp-wrap" data-animate>
+        <table class="ov-comp-table">
+          <thead>
+            <tr>
+              <th>Address / Area</th>
+              <th>Distance</th>
+              <th>Lot Size</th>
+              <th>Home Size</th>
+              <th>Sale Price</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="ov-comp-ph">Ovilla area — TBD</span></td>
+              <td><span class="ov-comp-ph">—</span></td>
+              <td><span class="ov-comp-tag">1 Acre</span></td>
+              <td><span class="ov-comp-ph">—</span></td>
+              <td><span class="ov-comp-ph">Available upon request</span></td>
+              <td><span class="ov-comp-ph">Ovilla comparable</span></td>
+            </tr>
+            <tr>
+              <td><span class="ov-comp-ph">Red Oak area — TBD</span></td>
+              <td><span class="ov-comp-ph">—</span></td>
+              <td><span class="ov-comp-tag">1 Acre</span></td>
+              <td><span class="ov-comp-ph">—</span></td>
+              <td><span class="ov-comp-ph">Available upon request</span></td>
+              <td><span class="ov-comp-ph">Ellis County comparable</span></td>
+            </tr>
+            <tr>
+              <td><span class="ov-comp-ph">Midlothian area — TBD</span></td>
+              <td><span class="ov-comp-ph">—</span></td>
+              <td><span class="ov-comp-tag">1 Acre</span></td>
+              <td><span class="ov-comp-ph">—</span></td>
+              <td><span class="ov-comp-ph">Available upon request</span></td>
+              <td><span class="ov-comp-ph">Midlothian submarket</span></td>
+            </tr>
+            <tr>
+              <td><span class="ov-comp-ph">Waxahachie area — TBD</span></td>
+              <td><span class="ov-comp-ph">—</span></td>
+              <td><span class="ov-comp-tag">1 Acre</span></td>
+              <td><span class="ov-comp-ph">—</span></td>
+              <td><span class="ov-comp-ph">Available upon request</span></td>
+              <td><span class="ov-comp-ph">Ellis County comparable</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="ov-comp-note" data-animate>Comparable market data available for qualified buyers, agents, and project partners — contact us for details</p>
+    </div>
+  </section>
+
+  <!-- ══ SECTION 8 — GALLERY ══ -->
+  <section class="ov-section-dark" id="gallery">
+    <div class="container">
+      <div class="ov-center" style="margin-bottom:52px;" data-animate>
+        <span class="ov-label">Gallery</span>
+        <h2 class="ov-h2 ov-h2-white">The Property</h2>
+      </div>
+      <!-- Wide hero shot -->
+      <div class="ov-gallery-hero" data-animate>
+        <img src="ovilla/aerial-1.jpg" alt="Gray's Creek Ranch Estates — Ovilla aerial overview">
+        <div class="ov-gallery-hero-overlay"></div>
+        <span class="ov-gallery-hero-label">Aerial Overview — Gray's Creek Ranch Estates, Ovilla</span>
+      </div>
+      <!-- 6-photo grid -->
+      <div class="ov-gallery-grid">
+        <div class="ov-gallery-tile" data-animate>
+          <img src="ovilla/aerial-2.jpg" alt="Wide aerial view">
+          <div class="ov-img-caption">Property Overview</div>
+        </div>
+        <div class="ov-gallery-tile" data-animate>
+          <img src="ovilla/aerial-3.jpg" alt="Fence lines and access road">
+          <div class="ov-img-caption">Property Access</div>
+        </div>
+        <div class="ov-gallery-tile" data-animate>
+          <img src="ovilla/aerial-4.jpg" alt="Aerial with red barn visible">
+          <div class="ov-img-caption">Site Character</div>
+        </div>
+        <div class="ov-gallery-tile" data-animate>
+          <img src="ovilla/aerial-5.jpg" alt="Aerial showing road and DFW skyline">
+          <div class="ov-img-caption">Regional Context — DFW Visible</div>
+        </div>
+        <div class="ov-gallery-tile" data-animate>
+          <img src="ovilla/aerial-6.jpg" alt="Property with horizon">
+          <div class="ov-img-caption">Community Boundary</div>
+        </div>
+        <div class="ov-gallery-tile" style="cursor:pointer;background:#1C2E4A;" id="ov-gallery-video" data-animate>
+          <img src="https://img.youtube.com/vi/oOPb-NeK8ug/maxresdefault.jpg" alt="Aerial video" style="object-position:center;opacity:0.85;">
+          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;background:rgba(200,169,106,0.88);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#0A1628;font-size:16px;padding-left:3px;">▶</div>
+          <div class="ov-img-caption">Watch Aerial Footage</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SECTION 9 — DEVELOPMENT TEAM ══ -->
+  <section class="ov-section-mid" id="team-section">
+    <div class="container">
+      <div class="ov-team-inner">
+        <div class="ov-team-text" data-animate>
+          <span class="ov-label">The People</span>
+          <h2 class="ov-h2 ov-h2-white">Experienced Team.<br>Clear Execution.</h2>
+          <p>Gray's Creek Ranch Estates – Ovilla is supported by a team with experience across development, construction, engineering, zoning, real estate sales, and strategic execution. Every role on this project is filled by a specialist with a clear function.</p>
+          <a href="team.html" class="btn btn-gold">Meet the Team</a>
+        </div>
+        <div class="ov-team-faces" data-animate>
+          <div class="ov-face"><img src="team/daniel.jpg" alt="Daniel Almaguer III"></div>
+          <div class="ov-face"><img src="team/kirk.jpg" alt="Kirk Kibler"></div>
+          <div class="ov-face"><img src="team/hilario.jpg" alt="HCE Engineering"></div>
+          <div class="ov-face"><img src="team/elsie.jpg" alt="Elsie Thurman"></div>
+          <div class="ov-face"><img src="team/shahab.jpg" alt="Shahab Smoqi"></div>
+          <div class="ov-face" style="background:rgba(200,169,106,0.08);display:flex;align-items:center;justify-content:center;">
+            <span style="font-family:var(--fh);font-size:1.05rem;color:rgba(200,169,106,0.5);letter-spacing:0.04em;">+ More</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SECTION 10 — CONTACT ══ -->
+  <section class="ov-section" id="contact">
+    <div class="container">
+      <div class="ov-contact-inner" data-animate>
+        <span class="ov-label">Get in Touch</span>
+        <h2 class="ov-h2">Interested in Gray's Creek<br>Ranch Estates – Ovilla?</h2>
+        <p>Whether you are a future homeowner, realtor, builder, or project partner, our team would be glad to connect and share more about the community.</p>
+        <div class="ov-contact-ctas">
+          <a href="mailto:thelonestarcapitalpartners@gmail.com" class="btn btn-gold">Contact Us</a>
+          <a href="index.html#invest" class="btn btn-outline-navy">Schedule a Conversation</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="index.html" class="nav-logo">
+              <img src="logo.png" alt="Lone Star Capital Partners" class="nav-logo-img footer-logo-img">
+            </a>
+            <p class="footer-tagline">A modern Texas land development and capital firm documenting the real process publicly.</p>
+            <div class="social-row">
+              <a href="#" class="social-btn" aria-label="YouTube">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              </a>
+              <a href="#" class="social-btn" aria-label="Instagram">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              </a>
+              <a href="#" class="social-btn" aria-label="LinkedIn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>The Project</h4>
+            <ul>
+              <li><a href="#community">Community Overview</a></li>
+              <li><a href="#vision">Project Vision</a></li>
+              <li><a href="#progress">Development Progress</a></li>
+              <li><a href="#location">Why Ovilla</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="team.html">The Team</a></li>
+              <li><a href="index.html#projects">All Projects</a></li>
+              <li><a href="grays-creek-ennis.html">Gray's Creek – Ennis</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Contact</h4>
+            <p style="font-size:0.85rem;color:rgba(255,255,255,0.4);margin-bottom:10px;line-height:1.6;">For homeowner and partnership inquiries:</p>
+            <a href="mailto:thelonestarcapitalpartners@gmail.com" class="footer-email">thelonestarcapitalpartners@gmail.com</a>
+            <p style="font-size:0.8rem;color:rgba(255,255,255,0.25);margin-top:8px;">Ovilla, Texas — Ellis County</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p class="footer-copy">© 2025 Lone Star Capital Partners LLC. All rights reserved.</p>
+        <p class="footer-legal">This website is for informational purposes only and does not constitute an offer to sell or solicitation of an offer to buy any securities. All development plans are subject to change. Images and descriptions are for illustrative purposes only.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- VIDEO MODAL -->
+  <div class="video-modal" id="ovVideoModal">
+    <div class="video-modal-overlay" id="ovModalOverlay"></div>
+    <div style="position:relative;z-index:1;width:min(90vw,calc(80vh*16/9));max-width:900px;background:#000;aspect-ratio:16/9;">
+      <button class="video-modal-close" id="ovModalClose">✕</button>
+      <iframe id="ovVideoPlayer" frameborder="0"
+        allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
+        style="width:100%;height:100%;display:block;border:none;"></iframe>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    const ovModal   = document.getElementById('ovVideoModal');
+    const ovPlayer  = document.getElementById('ovVideoPlayer');
+    const ovClose   = document.getElementById('ovModalClose');
+    const ovOverlay = document.getElementById('ovModalOverlay');
+
+    function openOvVideo() {
+      ovPlayer.src = 'https://www.youtube.com/embed/oOPb-NeK8ug?autoplay=1&rel=0';
+      ovModal.classList.add('active');
+    }
+    function closeOvVideo() {
+      ovModal.classList.remove('active');
+      ovPlayer.src = '';
+    }
+
+    document.getElementById('ov-video-trigger').addEventListener('click', openOvVideo);
+    document.getElementById('ov-gallery-video').addEventListener('click', openOvVideo);
+    ovClose.addEventListener('click', closeOvVideo);
+    ovOverlay.addEventListener('click', closeOvVideo);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeOvVideo(); });
+  </script>
+</body>
+</html>
