@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lancaster Residential Community | Lone Star Capital Partners</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    :root { --sp-xl: 112px; }
+
+    /* ── Hero ── */
+    .lc-hero {
+      position: relative;
+      height: 100vh; min-height: 680px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      overflow: hidden; background: #091522;
+    }
+    .lc-hero-bg {
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        135deg,
+        #091522 0%,
+        #0e1f36 40%,
+        #111c2e 70%,
+        #0a1420 100%
+      );
+    }
+    .lc-hero-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(200,169,106,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(200,169,106,0.04) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black, transparent);
+      -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black, transparent);
+    }
+    /* Diagonal accent lines */
+    .lc-hero-accent {
+      position: absolute; inset: 0; overflow: hidden; pointer-events: none;
+    }
+    .lc-hero-accent::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 20%;
+      width: 1px; height: 100%;
+      background: linear-gradient(to bottom, transparent 5%, rgba(200,169,106,0.06) 40%, rgba(200,169,106,0.1) 60%, transparent 95%);
+    }
+    .lc-hero-accent::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 20%;
+      width: 1px; height: 100%;
+      background: linear-gradient(to bottom, transparent 5%, rgba(200,169,106,0.06) 40%, rgba(200,169,106,0.1) 60%, transparent 95%);
+    }
+    /* Status badge */
+    .lc-status-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(200,169,106,0.08);
+      border: 0.5px solid rgba(200,169,106,0.25);
+      padding: 6px 16px;
+      margin-bottom: 36px;
+      position: relative;
+    }
+    .lc-status-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: #C8A96A;
+      box-shadow: 0 0 0 3px rgba(200,169,106,0.18);
+      animation: pulseGold 2s ease infinite;
+      flex-shrink: 0;
+    }
+    .lc-status-text {
+      font-family: var(--fb); font-size: 10px; font-weight: 600;
+      letter-spacing: 0.22em; text-transform: uppercase; color: rgba(200,169,106,0.85);
+    }
+    @keyframes pulseGold {
+      0%,100% { box-shadow: 0 0 0 3px rgba(200,169,106,0.18); }
+      50%      { box-shadow: 0 0 0 6px rgba(200,169,106,0.07); }
+    }
+    @keyframes scanDown {
+      0%   { transform: scaleY(0); transform-origin: top; }
+      50%  { transform: scaleY(1); transform-origin: top; }
+      51%  { transform: scaleY(1); transform-origin: bottom; }
+      100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+    .lc-hero-content {
+      position: relative; z-index: 2;
+      text-align: center; padding: 0 32px;
+    }
+    .lc-eyebrow {
+      display: flex; align-items: center; gap: 20px;
+      justify-content: center; margin-bottom: 32px;
+    }
+    .lc-ey-line { width: 40px; height: 1px; background: rgba(200,169,106,0.4); }
+    .lc-ey-text {
+      font-family: var(--fb); font-size: 11px; font-weight: 600;
+      letter-spacing: 0.28em; text-transform: uppercase;
+      color: rgba(200,169,106,0.75);
+    }
+    .lc-hero h1 {
+      font-family: var(--fh);
+      font-size: clamp(2.6rem, 5.5vw, 5rem);
+      font-weight: 400; letter-spacing: 0.03em; line-height: 1.1;
+      color: #FFFFFF; margin-bottom: 20px;
+    }
+    .lc-hero-rule {
+      width: 56px; height: 1px; margin: 0 auto 24px;
+      background: linear-gradient(to right, transparent, rgba(200,169,106,0.7), transparent);
+    }
+    .lc-hero-subtitle {
+      font-family: var(--fh);
+      font-size: clamp(1.05rem, 1.9vw, 1.35rem);
+      font-weight: 300; letter-spacing: 0.03em;
+      color: rgba(255,255,255,0.82);
+      max-width: 620px; margin: 0 auto 14px; line-height: 1.55;
+    }
+    .lc-hero-text {
+      font-family: var(--fb);
+      font-size: 0.98rem; color: rgba(255,255,255,0.55);
+      max-width: 520px; margin: 0 auto 44px; line-height: 1.82;
+    }
+    .lc-hero-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .lc-hero-foot {
+      position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
+      padding: 0 56px 40px;
+      display: flex; justify-content: space-between; align-items: flex-end;
+    }
+    .lc-loc-tag {
+      display: flex; align-items: center; gap: 10px;
+      font-family: var(--fb); font-size: 10px; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(255,255,255,0.38);
+    }
+    .lc-loc-dot { width: 6px; height: 6px; border-radius: 50%; background: #C8A96A; }
+    .lc-scroll-cue { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+    .lc-scroll-label {
+      font-family: var(--fb); font-size: 9px; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(255,255,255,0.28); writing-mode: vertical-rl;
+    }
+    .lc-scroll-line {
+      width: 1px; height: 44px;
+      background: linear-gradient(to bottom, rgba(200,169,106,0.5), transparent);
+      animation: scanDown 2.4s ease infinite;
+    }
+
+    /* ── Section wrappers ── */
+    .lc-section      { padding: var(--sp-xl) 0; background: #FFFFFF; }
+    .lc-section-warm { padding: var(--sp-xl) 0; background: #F5F3EF; }
+    .lc-section-alt  { padding: var(--sp-xl) 0; background: #EDEBE6; }
+    .lc-section-dark { padding: var(--sp-xl) 0; background: #0A1628; }
+    .lc-section-mid  { padding: var(--sp-xl) 0; background: #1C2E4A; }
+
+    .lc-center  { text-align: center; }
+    .lc-max-prose { max-width: 720px; margin: 0 auto; }
+
+    .lc-label {
+      display: block; font-family: var(--fb); font-size: 10px; font-weight: 600;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: #C8A96A; margin-bottom: 16px;
+    }
+    .lc-h2 {
+      font-family: var(--fh);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 400; letter-spacing: 0.03em; line-height: 1.15;
+      color: #0A1628; margin-bottom: 24px;
+    }
+    .lc-h2-white { color: #FFFFFF; }
+    .lc-lead { font-family: var(--fb); font-size: 1.02rem; color: #1A1A1A; line-height: 1.8; }
+    .lc-lead-white { color: rgba(255,255,255,0.82); }
+    .lc-rule-center {
+      width: 48px; height: 1px; margin: 28px auto 0;
+      background: linear-gradient(to right, transparent, rgba(200,169,106,0.6), transparent);
+    }
+
+    /* ── Snapshot metric cards ── */
+    .lc-snapshot-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1px; background: rgba(10,22,40,0.1);
+      border: 1px solid rgba(10,22,40,0.1);
+      overflow: hidden; margin-top: 64px;
+    }
+    .lc-metric {
+      background: #FFFFFF; padding: 42px 28px 38px;
+      text-align: center;
+      display: flex; flex-direction: column; align-items: center;
+      transition: background 0.28s ease;
+    }
+    .lc-metric:hover { background: #F5F3EF; }
+    .lc-metric-val {
+      font-family: var(--fh); font-size: 3rem; font-weight: 300;
+      color: #0A1628; letter-spacing: 0.02em; line-height: 1;
+      margin-bottom: 10px;
+    }
+    .lc-metric-rule {
+      width: 36px; height: 1px; margin-bottom: 14px;
+      background: linear-gradient(to right, transparent, rgba(200,169,106,0.7), transparent);
+    }
+    .lc-metric-label {
+      font-family: var(--fb); font-size: 10px; font-weight: 600;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: rgba(10,22,40,0.45);
+    }
+    .lc-metric-sub {
+      font-family: var(--fb); font-size: 0.78rem;
+      color: rgba(10,22,40,0.32); margin-top: 6px; line-height: 1.5;
+    }
+
+    /* ── Feature cards ── */
+    .lc-card-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; background: rgba(10,22,40,0.08);
+      border: 1px solid rgba(10,22,40,0.08);
+      overflow: hidden; margin-top: 64px;
+    }
+    .lc-card {
+      background: #FFFFFF; padding: 36px 28px;
+      display: flex; flex-direction: column;
+      transition: background 0.28s ease;
+    }
+    .lc-card:hover { background: #F5F3EF; }
+    .lc-card-icon {
+      width: 52px; height: 52px;
+      background: #F5F3EF; border: 1.5px solid #0A1628;
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; margin-bottom: 26px; position: relative; flex-shrink: 0;
+    }
+    .lc-card-icon::after {
+      content: ''; position: absolute; bottom: -10px; left: 50%;
+      transform: translateX(-50%);
+      width: 30px; height: 1px;
+      background: linear-gradient(to right, transparent, rgba(200,169,106,0.8), transparent);
+    }
+    .lc-card h3 {
+      font-family: var(--fh); font-size: 1.15rem; font-weight: 400;
+      color: #0A1628; letter-spacing: 0.02em; line-height: 1.3; margin-bottom: 10px;
+    }
+    .lc-card p {
+      font-family: var(--fb); font-size: 0.865rem;
+      color: rgba(10,22,40,0.55); line-height: 1.7;
+    }
+
+    /* alt bg cards */
+    .lc-card-grid--alt .lc-card { background: #EDEBE6; }
+    .lc-card-grid--alt .lc-card:hover { background: #E5E2DD; }
+    .lc-card-grid--alt .lc-card-icon { background: #EDEBE6; }
+
+    /* warm bg cards */
+    .lc-card-grid--warm .lc-card { background: #F5F3EF; }
+    .lc-card-grid--warm .lc-card:hover { background: #EDEBE6; }
+    .lc-card-grid--warm .lc-card-icon { background: #F5F3EF; }
+
+    /* ── Progress visuals section ── */
+    .lc-progress-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-top: 64px;
+    }
+    .lc-construction-stat {
+      display: flex; gap: 20px; align-items: center;
+      padding: 24px 0; border-bottom: 0.5px solid rgba(255,255,255,0.08);
+    }
+    .lc-construction-stat:first-child { padding-top: 0; }
+    .lc-construction-stat:last-child { border-bottom: none; }
+    .lc-stat-num {
+      font-family: var(--fh); font-size: 2.4rem; font-weight: 300;
+      color: #C8A96A; letter-spacing: 0.03em; line-height: 1; flex-shrink: 0; min-width: 64px;
+    }
+    .lc-stat-info {}
+    .lc-stat-title {
+      font-family: var(--fh); font-size: 1.05rem; font-weight: 400;
+      color: #FFFFFF; margin-bottom: 4px;
+    }
+    .lc-stat-desc {
+      font-family: var(--fb); font-size: 0.855rem;
+      color: rgba(255,255,255,0.45); line-height: 1.6;
+    }
+    .lc-construction-bar {
+      margin-top: 28px;
+    }
+    .lc-bar-label {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 10px;
+      font-family: var(--fb); font-size: 10px; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+    }
+    .lc-bar-label span:first-child { color: rgba(200,169,106,0.7); }
+    .lc-bar-label span:last-child { color: rgba(255,255,255,0.4); }
+    .lc-bar-track {
+      height: 3px; background: rgba(255,255,255,0.07); position: relative; overflow: hidden;
+    }
+    .lc-bar-fill {
+      height: 100%; background: linear-gradient(to right, rgba(200,169,106,0.6), #C8A96A);
+      transition: width 1.2s ease;
+    }
+    .lc-vision-tiles {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+    }
+    .lc-ph-tile {
+      aspect-ratio: 4/3;
+      background: rgba(255,255,255,0.03);
+      border: 0.5px solid rgba(200,169,106,0.1);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 10px;
+      transition: background 0.3s ease;
+    }
+    .lc-ph-tile:hover { background: rgba(200,169,106,0.04); }
+    .lc-ph-tile-icon { font-size: 1.6rem; opacity: 0.3; }
+    .lc-ph-tile-label {
+      font-family: var(--fb); font-size: 9px; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(200,169,106,0.45);
+    }
+    .lc-ph-tile-sub {
+      font-family: var(--fb); font-size: 8.5px;
+      color: rgba(255,255,255,0.18); letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .lc-ph-tile--tall {
+      grid-column: span 2; aspect-ratio: 16/7;
+    }
+
+    /* ── Timeline ── */
+    .lc-timeline {
+      display: flex; flex-direction: column; gap: 0;
+      max-width: 700px; margin: 60px auto 0;
+      position: relative;
+    }
+    .lc-timeline::before {
+      content: ''; position: absolute;
+      top: 12px; bottom: 12px; left: 11px;
+      width: 1px; background: rgba(10,22,40,0.12);
+    }
+    .lc-tl-item {
+      display: flex; gap: 28px; align-items: flex-start;
+      padding: 0 0 34px; position: relative; z-index: 1;
+    }
+    .lc-tl-item:last-child { padding-bottom: 0; }
+    .lc-tl-dot-col { flex-shrink: 0; width: 24px; padding-top: 3px; display: flex; justify-content: center; }
+    .lc-tl-dot { width: 12px; height: 12px; border-radius: 50%; }
+    .lc-tl-dot--done   { background: #C8A96A; border: 2px solid #C8A96A; }
+    .lc-tl-dot--now    { background: #FFF; border: 2.5px solid #C8A96A;
+                          box-shadow: 0 0 0 4px rgba(200,169,106,0.18);
+                          animation: pulseGold 2s ease infinite; }
+    .lc-tl-dot--future { background: transparent; border: 2px solid rgba(10,22,40,0.2); }
+    .lc-tl-body { flex: 1; }
+    .lc-tl-status {
+      font-family: var(--fb); font-size: 9px; font-weight: 600;
+      letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 5px;
+    }
+    .lc-tl-status--done   { color: #C8A96A; }
+    .lc-tl-status--now    { color: #0A1628; }
+    .lc-tl-status--future { color: rgba(10,22,40,0.28); }
+    .lc-tl-title {
+      font-family: var(--fh); font-size: 1.2rem; font-weight: 400;
+      color: #0A1628; letter-spacing: 0.02em; margin-bottom: 6px;
+    }
+    .lc-tl-title--future { color: rgba(10,22,40,0.38); }
+    .lc-tl-desc {
+      font-family: var(--fb); font-size: 0.865rem;
+      color: rgba(10,22,40,0.5); line-height: 1.65;
+    }
+    .lc-tl-desc--future { color: rgba(10,22,40,0.28); }
+
+    /* ── Location ── */
+    .lc-location-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+    }
+    .lc-highlights { display: flex; flex-direction: column; margin-top: 36px; }
+    .lc-hi-item {
+      display: flex; align-items: center; gap: 16px;
+      padding: 15px 0; border-bottom: 0.5px solid rgba(10,22,40,0.1);
+    }
+    .lc-hi-item:last-child { border-bottom: none; }
+    .lc-hi-dot { width: 7px; height: 7px; border-radius: 50%; background: #C8A96A; flex-shrink: 0; }
+    .lc-hi-text { font-family: var(--fb); font-size: 0.92rem; color: #1A1A1A; font-weight: 500; }
+    .lc-map-wrap {
+      position: relative; overflow: hidden;
+      border: 0.5px solid rgba(10,22,40,0.12); height: 440px;
+    }
+    .lc-map-wrap iframe { width: 100%; height: 100%; border: none; display: block; filter: grayscale(12%); }
+    .lc-map-label {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 11px 18px; background: rgba(10,22,40,0.85);
+      font-family: var(--fb); font-size: 10px; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase; color: rgba(200,169,106,0.85);
+    }
+
+    /* ── Gallery ── */
+    .lc-gallery-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 52px;
+    }
+    .lc-gallery-tile {
+      position: relative; overflow: hidden; aspect-ratio: 4/3;
+      background: #1C2E4A;
+      border: 0.5px solid rgba(200,169,106,0.08);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 12px;
+      transition: background 0.3s ease;
+    }
+    .lc-gallery-tile:hover { background: #1f3454; }
+    .lc-gal-icon { font-size: 2rem; opacity: 0.28; }
+    .lc-gal-label {
+      font-family: var(--fb); font-size: 10px; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(200,169,106,0.5);
+    }
+    .lc-gal-sub {
+      font-family: var(--fb); font-size: 9px;
+      color: rgba(255,255,255,0.18); letter-spacing: 0.1em; text-transform: uppercase;
+    }
+    .lc-gallery-tile img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.55s ease; position: absolute; inset: 0;
+    }
+    .lc-gallery-tile:hover img { transform: scale(1.05); }
+    .lc-gal-caption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 10px 14px;
+      background: linear-gradient(to top, rgba(10,22,40,0.75), transparent);
+      font-family: var(--fb); font-size: 9px; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(200,169,106,0.85);
+    }
+    .lc-gallery-coming-note {
+      margin-top: 28px; text-align: center;
+      font-family: var(--fb); font-size: 10px; font-weight: 600;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(255,255,255,0.22);
+    }
+
+    /* ── Team ── */
+    .lc-team-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+    }
+    .lc-team-text h2 { color: #FFFFFF; margin-bottom: 18px; }
+    .lc-team-text p {
+      font-family: var(--fb); font-size: 1rem;
+      color: rgba(255,255,255,0.82); line-height: 1.8; margin-bottom: 32px;
+    }
+    .lc-team-faces {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+    }
+    .lc-face {
+      aspect-ratio: 1/1; overflow: hidden;
+      background: #1C2E4A; border: 0.5px solid rgba(200,169,106,0.15);
+    }
+    .lc-face img {
+      width: 100%; height: 100%; object-fit: cover;
+      object-position: center top; display: block;
+      filter: grayscale(20%); transition: filter 0.3s ease;
+    }
+    .lc-face:hover img { filter: grayscale(0); }
+
+    /* ── Contact ── */
+    .lc-contact-inner { max-width: 620px; margin: 0 auto; text-align: center; }
+    .lc-contact-inner p {
+      font-family: var(--fb); font-size: 1.02rem;
+      color: rgba(10,22,40,0.58); line-height: 1.8; margin-bottom: 44px;
+    }
+    .lc-contact-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+    /* ── Responsive ── */
+    @media (max-width: 1024px) {
+      .lc-snapshot-grid { grid-template-columns: repeat(2, 1fr); }
+      .lc-card-grid  { grid-template-columns: repeat(2, 1fr); }
+      .lc-progress-inner { grid-template-columns: 1fr; gap: 56px; }
+      .lc-location-inner { grid-template-columns: 1fr; gap: 52px; }
+      .lc-map-wrap { height: 380px; }
+      .lc-team-inner { grid-template-columns: 1fr; gap: 52px; }
+      .lc-gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      :root { --sp-xl: 72px; }
+      .lc-hero h1 { font-size: 2.4rem; }
+      .lc-snapshot-grid { grid-template-columns: repeat(2, 1fr); }
+      .lc-card-grid { grid-template-columns: 1fr; }
+      .lc-gallery-grid { grid-template-columns: 1fr 1fr; }
+      .lc-hero-foot { padding: 0 24px 28px; }
+      .lc-hero-ctas { flex-direction: column; align-items: center; }
+      .lc-hero-ctas .btn { width: 100%; max-width: 300px; justify-content: center; }
+      .lc-vision-tiles { grid-template-columns: 1fr; }
+      .lc-ph-tile--tall { grid-column: auto; aspect-ratio: 4/3; }
+    }
+    @media (max-width: 480px) {
+      .lc-snapshot-grid { grid-template-columns: 1fr 1fr; }
+      .lc-gallery-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="logo.png" alt="Lone Star Capital Partners" class="nav-logo-img">
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#process">Process</a></li>
+        <li class="has-dropdown">
+          <a href="index.html#projects">Projects <span class="dd-chevron">▼</span></a>
+          <div class="nav-dropdown">
+            <div class="nav-dd-header">
+              <span>Active Portfolio</span>
+              <a href="index.html#projects">View All →</a>
+            </div>
+            <a href="grays-creek-ovilla.html" class="nav-dd-item">
+              <span class="nav-dd-dot nav-dd-dot--active"></span>
+              <span class="nav-dd-info">
+                <span class="nav-dd-name">Gray's Creek – Ovilla</span>
+                <span class="nav-dd-loc">Ovilla, Texas &nbsp;·&nbsp; 27 One-Acre Lots</span>
+              </span>
+              <span class="nav-dd-arrow">↗</span>
+            </a>
+            <a href="index.html#projects" class="nav-dd-item">
+              <span class="nav-dd-dot nav-dd-dot--active"></span>
+              <span class="nav-dd-info">
+                <span class="nav-dd-name">Mansfield Community</span>
+                <span class="nav-dd-loc">Mansfield, Texas &nbsp;·&nbsp; 12 Luxury Homes</span>
+              </span>
+            </a>
+            <a href="lancaster.html" class="nav-dd-item">
+              <span class="nav-dd-dot nav-dd-dot--active"></span>
+              <span class="nav-dd-info">
+                <span class="nav-dd-name">Lancaster Residential Community</span>
+                <span class="nav-dd-loc">Lancaster, Texas &nbsp;·&nbsp; 16 Homes</span>
+              </span>
+              <span class="nav-dd-arrow">↗</span>
+            </a>
+            <div class="nav-dd-sep"></div>
+            <a href="grays-creek-ennis.html" class="nav-dd-item">
+              <span class="nav-dd-dot nav-dd-dot--active"></span>
+              <span class="nav-dd-info">
+                <span class="nav-dd-name">Gray's Creek – Ennis</span>
+                <span class="nav-dd-loc">Ennis, Texas &nbsp;·&nbsp; 60+ Homes Planned</span>
+              </span>
+              <span class="nav-dd-arrow">↗</span>
+            </a>
+          </div>
+        </li>
+        <li><a href="index.html#transparency">Transparency</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="index.html#invest" class="nav-inquiry-mobile">Investor Inquiries</a></li>
+      </ul>
+      <a href="index.html#invest" class="nav-inquiry">Investor Inquiries</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ══ SECTION 1 — HERO ══ -->
+  <section class="lc-hero" id="home">
+    <div class="lc-hero-bg"></div>
+    <div class="lc-hero-grid"></div>
+    <div class="lc-hero-accent"></div>
+
+    <div class="lc-hero-content" data-animate>
+      <div class="lc-status-badge">
+        <span class="lc-status-dot"></span>
+        <span class="lc-status-text">Active Construction &nbsp;·&nbsp; 10 Homes Underway</span>
+      </div>
+      <div class="lc-eyebrow">
+        <span class="lc-ey-line"></span>
+        <span class="lc-ey-text">Lancaster, Texas &nbsp;·&nbsp; Dallas County</span>
+        <span class="lc-ey-line"></span>
+      </div>
+      <h1>Lancaster Residential<br>Community</h1>
+      <div class="lc-hero-rule"></div>
+      <p class="lc-hero-subtitle">A 16-home residential development on approximately 5 acres in Lancaster, Texas.</p>
+      <p class="lc-hero-text">Located in the southern Dallas growth corridor, the Lancaster community is designed to deliver quality new homes in a well-connected residential market.</p>
+      <div class="lc-hero-ctas">
+        <a href="#community" class="btn btn-gold">View Community</a>
+        <a href="#contact" class="btn btn-ghost">Contact Us</a>
+      </div>
+    </div>
+
+    <div class="lc-hero-foot">
+      <div class="lc-loc-tag">
+        <span class="lc-loc-dot"></span>
+        Lancaster Residential Community &nbsp;·&nbsp; Lancaster, TX &nbsp;·&nbsp; Dallas County
+      </div>
+      <div class="lc-scroll-cue">
+        <span class="lc-scroll-label">Scroll</span>
+        <div class="lc-scroll-line"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SECTION 2 — PROJECT SNAPSHOT ══ -->
+  <section class="lc-section" id="snapshot">
+    <div class="container">
+      <div class="lc-center lc-max-prose" data-animate>
+        <span class="lc-label">Project Snapshot</span>
+        <h2 class="lc-h2">The Numbers at a Glance</h2>
+      </div>
+      <div class="lc-snapshot-grid">
+        <div class="lc-metric" data-animate>
+          <div class="lc-metric-val">Lancaster</div>
+          <div class="lc-metric-rule"></div>
+          <div class="lc-metric-label">Location</div>
+          <div class="lc-metric-sub">Dallas County, Texas</div>
+        </div>
+        <div class="lc-metric" data-animate>
+          <div class="lc-metric-val">~5</div>
+          <div class="lc-metric-rule"></div>
+          <div class="lc-metric-label">Site Size</div>
+          <div class="lc-metric-sub">Acres</div>
+        </div>
+        <div class="lc-metric" data-animate>
+          <div class="lc-metric-val">16</div>
+          <div class="lc-metric-rule"></div>
+          <div class="lc-metric-label">Planned Homes</div>
+          <div class="lc-metric-sub">New Construction</div>
+        </div>
+        <div class="lc-metric" data-animate>
+          <div class="lc-metric-val">10</div>
+          <div class="lc-metric-rule"></div>
+          <div class="lc-metric-label">Current Status</div>
+          <div class="lc-metric-sub">Homes in Process</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SECTION 3 — COMMUNITY OVERVIEW ══ -->
+  <section class="lc-section-warm" id="community">
+    <div class="container">
+      <div class="lc-center lc-max-prose" data-animate>
+        <span class="lc-label">Community Overview</span>
+        <h2 class="lc-h2">A New Residential Community<br>in Lancaster</h2>
+        <p class="lc-lead">The Lancaster development is planned as a 16-home residential community focused on quality construction, efficient execution, and accessibility to the broader Dallas-Fort Worth market. With 10 homes currently in the process of construction, the project represents an active phase of growth within the team's development pipeline.</p>
+        <div class="lc-rule-center"></div>
+      </div>
+      <div class="lc-card-grid lc-card-grid--warm">
+        <div class="lc-card" data-animate>
+          <div class="lc-card-icon">🏘️</div>
+          <h3>16-Home Residential Community</h3>
+          <p>A focused residential development bringing 16 new construction homes to an established Lancaster neighborhood.</p>
+        </div>
+        <div class="lc-card" data-animate>
+          <div class="lc-card-icon">📐</div>
+          <h3>Approximately 5-Acre Site</h3>
+          <p>A compact, efficient 5-acre footprint designed for practical residential density in a well-connected location.</p>
+        </div>
+        <div class="lc-card" data-animate>
+          <div class="lc-card-icon">🔨</div>
+          <h3>New Construction Homes</h3>
+          <p>Every home in the community is built new — delivering modern finishes, efficient layouts, and move-in ready product.</p>
+        </div>
+        <div class="lc-card" data-animate>
+          <div class="lc-card-icon">⚡</div>
+          <h3>Active Building Phase</h3>
+          <p>With 10 homes actively in construction, the Lancaster project demonstrates real execution and tangible progress on the ground.</p>
+        </div>
+        <div class="lc-card" data-animate>
+          <div class="lc-card-icon">🗺️</div>
+          <h3>Southern Dallas Growth Corridor</h3>
+          <p>Positioned within one of the most consistently active residential growth zones in Dallas County and the broader DFW region.</p>
+        </div>
+        <div class="lc-card" data-animate>
+          <div class="lc-card-icon">🚗</div>
+          <h3>Access to DFW Employment Centers</h3>
+          <p>Convenient proximity to major highways connecting residents to Dallas employment, shopping, and regional amenities.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SECTION 4 — DEVELOPMENT PROGRESS ══ -->
+  <section class="lc-section-alt" id="progress">
+    <div class="container">
+      <div class="lc-center lc-max-prose" data-animate>
+        <span class="lc-label">Development Timeline</span>
+        <h2 class="lc-h2">Project Progress</h2>
+        <p class="lc-lead">A clear picture of where the Lancaster development stands today, and the path to community completion.</p>
+        <div class="lc-rule-center"></div>
+      </div>
+      <div class="lc-timeline">
+        <div class="lc-tl-item" data-animate>
+          <div class="lc-tl-dot-col"><div class="lc-tl-dot lc-tl-dot--done"></div></div>
+          <div class="lc-tl-body">
+            <div class="lc-tl-status lc-tl-status--done">Completed</div>
+            <div class="lc-tl-title">Land Acquired</div>
+            <p class="lc-tl-desc">Approximately 5-acre site secured in Lancaster, Texas. Due diligence, title, surveys, and closing completed.</p>
+          </div>
+        </div>
+        <div class="lc-tl-item" data-animate>
+          <div class="lc-tl-dot-col"><div class="lc-tl-dot lc-tl-dot--done"></div></div>
+          <div class="lc-tl-body">
+            <div class="lc-tl-status lc-tl-status--done">Completed</div>
+            <div class="lc-tl-title">Development Planning Completed</div>
+            <p class="lc-tl-desc">Community layout, home configuration, and build phasing fully planned and finalized with the development team.</p>
+          </div>
+        </div>
+        <div class="lc-tl-item" data-animate>
+          <div class="lc-tl-dot-col"><div class="lc-tl-dot lc-tl-dot--done"></div></div>
+          <div class="lc-tl-body">
+            <div class="lc-tl-status lc-tl-status--done">Completed</div>
+            <div class="lc-tl-title">Site Preparation Completed</div>
+            <p class="lc-tl-desc">Site cleared, graded, and prepared for construction. Utilities stubbed and initial infrastructure work completed.</p>
+          </div>
+        </div>
+        <div class="lc-tl-item" data-animate>
+          <div class="lc-tl-dot-col"><div class="lc-tl-dot lc-tl-dot--done"></div></div>
+          <div class="lc-tl-body">
+            <div class="lc-tl-status lc-tl-status--done">Completed</div>
+            <div class="lc-tl-title">Construction Phase Initiated</div>
+            <p class="lc-tl-desc">Vertical construction has begun. Permits secured and building activity underway across the first phase of homes.</p>
+          </div>
+        </div>
+        <div class="lc-tl-item" data-animate>
+          <div class="lc-tl-dot-col"><div class="lc-tl-dot lc-tl-dot--now"></div></div>
+          <div class="lc-tl-body">
+            <div class="lc-tl-status lc-tl-status--now">In Progress</div>
+            <div class="lc-tl-title">10 Homes in Active Construction</div>
+            <p class="lc-tl-desc">Ten homes are currently undergoing vertical construction. Framing, systems, and finishing work progressing on schedule.</p>
+          </div>
+        </div>
+        <div class="lc-tl-item" data-animate>
+          <div class="lc-tl-dot-col"><div class="lc-tl-dot lc-tl-dot--now"></div></div>
+          <div class="lc-tl-body">
+            <div class="lc-tl-status lc-tl-status--now">In Progress</div>
+            <div class="lc-tl-title">Sales &amp; Marketing Preparation</div>
+            <p class="lc-tl-desc">Sales strategy, buyer outreach, and MLS coordination underway in preparation for community launch.</p>
+          </div>
+        </div>
+        <div class="lc-tl-item" data-animate>
+          <div class="lc-tl-dot-col"><div class="lc-tl-dot lc-tl-dot--future"></div></div>
+          <div class="lc-tl-body">
+            <div class="lc-tl-status lc-tl-status--future">Future</div>
+            <div class="lc-tl-title lc-tl-title--future">Remaining Homes Begin Construction</div>
+            <p class="lc-tl-desc lc-tl-desc--future">Remaining homes to enter the construction pipeline as phasing progresses toward full community build-out.</p>
+          </div>
+        </div>
+        <div class="lc-tl-item" data-animate>
+          <div class="lc-tl-dot-col"><div class="lc-tl-dot lc-tl-dot--future"></div></div>
+          <div class="lc-tl-body">
+            <div class="lc-tl-status lc-tl-status--future">Future</div>
+            <div class="lc-tl-title lc-tl-title--future">Community Completion</div>
+            <p class="lc-tl-desc lc-tl-desc--future">All 16 homes completed, inspected, and ready for occupancy. Community landscaping and finishing touches in place.</p>
+          </div>
+        </div>
+        <div class="lc-tl-item" data-animate>
+          <div class="lc-tl-dot-col"><div class="lc-tl-dot lc-tl-dot--future"></div></div>
+          <div class="lc-tl-body">
+            <div class="lc-tl-status lc-tl-status--future">Future</div>
+            <div class="lc-tl-title lc-tl-title--future">Home Sales &amp; Buyer Outreach</div>
+            <p class="lc-tl-desc lc-tl-desc--future">Community fully listed, buyer outreach active, and homes delivered to new Lancaster homeowners.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SECTION 5 — WHY LANCASTER ══ -->
+  <section class="lc-section" id="location">
+    <div class="container">
+      <div class="lc-location-inner">
+        <div data-animate>
+          <span class="lc-label">Location</span>
+          <h2 class="lc-h2">Why Lancaster</h2>
+          <p class="lc-lead">Lancaster is positioned within the southern Dallas growth corridor, offering convenient access to major highways, employment centers, schools, and regional amenities. The area continues to attract homeowners seeking new construction options with access to the Dallas-Fort Worth metroplex.</p>
+          <div class="lc-highlights">
+            <div class="lc-hi-item"><span class="lc-hi-dot"></span><span class="lc-hi-text">Southern Dallas County location</span></div>
+            <div class="lc-hi-item"><span class="lc-hi-dot"></span><span class="lc-hi-text">Access to I-20, I-35E, and Highway 342</span></div>
+            <div class="lc-hi-item"><span class="lc-hi-dot"></span><span class="lc-hi-text">Near Dallas employment base and regional centers</span></div>
+            <div class="lc-hi-item"><span class="lc-hi-dot"></span><span class="lc-hi-text">Established residential market with infrastructure in place</span></div>
+            <div class="lc-hi-item"><span class="lc-hi-dot"></span><span class="lc-hi-text">New construction demand across south Dallas</span></div>
+            <div class="lc-hi-item"><span class="lc-hi-dot"></span><span class="lc-hi-text">Regional growth corridor with continued investment</span></div>
+          </div>
+        </div>
+        <div data-animate>
+          <div class="lc-map-wrap">
+            <iframe
+              src="https://maps.google.com/maps?q=Lancaster,+TX+75146&t=k&z=12&ie=UTF8&iwloc=&output=embed"
+              allowfullscreen loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            <div class="lc-map-label">📍 Lancaster, Texas — Dallas County</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SECTION 6 — MARKET POSITION ══ -->
+  <section class="lc-section-alt" id="market">
+    <div class="container">
+      <div class="lc-center lc-max-prose" data-animate>
+        <span class="lc-label">Market Position</span>
+        <h2 class="lc-h2">Positioned for Accessible<br>New Construction</h2>
+        <p class="lc-lead">As affordability challenges continue across the Dallas-Fort Worth market, Lancaster remains an attractive option for buyers seeking new homes with regional connectivity. The project is positioned to serve demand for quality new construction in a practical, accessible location.</p>
+        <div class="lc-rule-center"></div>
+      </div>
+      <div class="lc-card-grid lc-card-grid--alt">
+        <div class="lc-card" data-animate>
+          <div class="lc-card-icon">📈</div>
+          <h3>Strong Demand for New Homes</h3>
+          <p>Buyer demand for new construction in south Dallas County continues to outpace available supply, supporting consistent interest in communities like Lancaster.</p>
+        </div>
+        <div class="lc-card" data-animate>
+          <div class="lc-card-icon">🛣️</div>
+          <h3>Access to Dallas-Fort Worth</h3>
+          <p>Lancaster's highway network provides residents straightforward access to employment, retail, and major destinations throughout the DFW metroplex.</p>
+        </div>
+        <div class="lc-card" data-animate>
+          <div class="lc-card-icon">🏡</div>
+          <h3>Practical Price-Point Market</h3>
+          <p>The Lancaster market serves buyers seeking new construction quality at an accessible price point — a critical segment in a supply-constrained DFW region.</p>
+        </div>
+        <div class="lc-card" data-animate>
+          <div class="lc-card-icon">🔍</div>
+          <h3>Growing Buyer Interest</h3>
+          <p>Southern Dallas communities are attracting increased buyer interest from first-time homeowners, relocating families, and value-focused buyers throughout the region.</p>
+        </div>
+        <div class="lc-card" data-animate>
+          <div class="lc-card-icon">🏙️</div>
+          <h3>Established Community Base</h3>
+          <p>Lancaster has an established residential community with infrastructure, schools, and services already in place — reducing development risk and supporting long-term stability.</p>
+        </div>
+        <div class="lc-card" data-animate>
+          <div class="lc-card-icon">⚙️</div>
+          <h3>Efficient Residential Development</h3>
+          <p>A focused 16-home footprint enables efficient construction execution and community delivery — without the scale complexity of larger master-planned communities.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SECTION 7 — CONSTRUCTION & QUALITY ══ -->
+  <section class="lc-section-dark" id="construction">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;" class="lc-progress-inner" data-animate>
+        <!-- Left: copy + stats -->
+        <div>
+          <span class="lc-label">Construction &amp; Quality</span>
+          <h2 class="lc-h2 lc-h2-white">Built with Execution<br>in Mind</h2>
+          <p class="lc-lead lc-lead-white" style="margin-bottom:44px;">The Lancaster project is focused on disciplined construction, efficient delivery, and quality residential product. With multiple homes already underway, the project demonstrates the team's ability to move from planning into active, on-the-ground execution.</p>
+          <div class="lc-construction-stat">
+            <div class="lc-stat-num">16</div>
+            <div class="lc-stat-info">
+              <div class="lc-stat-title">Total Planned Homes</div>
+              <div class="lc-stat-desc">New construction residential community across approximately 5 acres in Lancaster, Texas.</div>
+            </div>
+          </div>
+          <div class="lc-construction-stat">
+            <div class="lc-stat-num">10</div>
+            <div class="lc-stat-info">
+              <div class="lc-stat-title">Homes in Active Construction</div>
+              <div class="lc-stat-desc">Vertical construction underway on 10 homes — framing, systems, and finishes progressing on schedule.</div>
+            </div>
+          </div>
+          <div class="lc-construction-stat">
+            <div class="lc-stat-num">~5</div>
+            <div class="lc-stat-info">
+              <div class="lc-stat-title">Acre Site Footprint</div>
+              <div class="lc-stat-desc">A compact, efficient site enabling coordinated phased construction and community delivery.</div>
+            </div>
+          </div>
+          <div class="lc-construction-bar">
+            <div class="lc-bar-label">
+              <span>Construction Progress</span>
+              <span>10 of 16 Homes</span>
+            </div>
+            <div class="lc-bar-track">
+              <div class="lc-bar-fill" style="width:62%;"></div>
+            </div>
+          </div>
+        </div>
+        <!-- Right: photo placeholders -->
+        <div class="lc-vision-tiles">
+          <div class="lc-ph-tile lc-ph-tile--tall">
+            <div class="lc-ph-tile-icon">🔨</div>
+            <div class="lc-ph-tile-label">Construction in Progress</div>
+            <div class="lc-ph-tile-sub">Photography Coming Soon</div>
+          </div>
+          <div class="lc-ph-tile">
+            <div class="lc-ph-tile-icon">🏗️</div>
+            <div class="lc-ph-tile-label">Site Progress</div>
+            <div class="lc-ph-tile-sub">Active Build</div>
+          </div>
+          <div class="lc-ph-tile">
+            <div class="lc-ph-tile-icon">🏠</div>
+            <div class="lc-ph-tile-label">Home Exteriors</div>
+            <div class="lc-ph-tile-sub">In Construction</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SECTION 8 — GALLERY ══ -->
+  <section class="lc-section-dark" id="gallery" style="padding-top:0;">
+    <div class="container">
+      <div class="lc-center" style="margin-bottom:52px;" data-animate>
+        <span class="lc-label">Gallery</span>
+        <h2 class="lc-h2 lc-h2-white">Project Gallery</h2>
+      </div>
+      <div class="lc-gallery-grid">
+        <div class="lc-gallery-tile" data-animate>
+          <div class="lc-gal-icon">📸</div>
+          <div class="lc-gal-label">Construction Progress</div>
+          <div class="lc-gal-sub">Coming Soon</div>
+        </div>
+        <div class="lc-gallery-tile" data-animate>
+          <div class="lc-gal-icon">🏗️</div>
+          <div class="lc-gal-label">Framing &amp; Structure</div>
+          <div class="lc-gal-sub">Coming Soon</div>
+        </div>
+        <div class="lc-gallery-tile" data-animate>
+          <div class="lc-gal-icon">🚁</div>
+          <div class="lc-gal-label">Drone Footage</div>
+          <div class="lc-gal-sub">Coming Soon</div>
+        </div>
+        <div class="lc-gallery-tile" data-animate>
+          <div class="lc-gal-icon">🏠</div>
+          <div class="lc-gal-label">Home Exteriors</div>
+          <div class="lc-gal-sub">Coming Soon</div>
+        </div>
+        <div class="lc-gallery-tile" data-animate>
+          <div class="lc-gal-icon">🪟</div>
+          <div class="lc-gal-label">Interior Progress</div>
+          <div class="lc-gal-sub">Coming Soon</div>
+        </div>
+        <div class="lc-gallery-tile" data-animate>
+          <div class="lc-gal-icon">📐</div>
+          <div class="lc-gal-label">Site Overview</div>
+          <div class="lc-gal-sub">Coming Soon</div>
+        </div>
+      </div>
+      <p class="lc-gallery-coming-note" data-animate>Construction photography in progress &nbsp;·&nbsp; Updated imagery will be added as the build advances</p>
+    </div>
+  </section>
+
+  <!-- ══ SECTION 9 — DEVELOPMENT TEAM ══ -->
+  <section class="lc-section-mid" id="team-section">
+    <div class="container">
+      <div class="lc-team-inner">
+        <div class="lc-team-text" data-animate>
+          <span class="lc-label">The People</span>
+          <h2 class="lc-h2 lc-h2-white">Experienced Team.<br>Active Execution.</h2>
+          <p>The Lancaster development is supported by a team with experience across land development, construction, engineering, sales, and strategic execution. Every phase of this project is guided by specialists with clear responsibility and a commitment to delivery.</p>
+          <a href="team.html" class="btn btn-gold">Meet the Team</a>
+        </div>
+        <div class="lc-team-faces" data-animate>
+          <div class="lc-face"><img src="team/daniel.jpg" alt="Daniel Almaguer III"></div>
+          <div class="lc-face"><img src="team/kirk.jpg" alt="Kirk Kibler"></div>
+          <div class="lc-face"><img src="team/hilario.jpg" alt="HCE Engineering"></div>
+          <div class="lc-face"><img src="team/elsie.jpg" alt="Elsie Thurman"></div>
+          <div class="lc-face"><img src="team/shahab.jpg" alt="Shahab Smoqi"></div>
+          <div class="lc-face" style="background:rgba(200,169,106,0.08);display:flex;align-items:center;justify-content:center;">
+            <span style="font-family:var(--fh);font-size:1.05rem;color:rgba(200,169,106,0.5);letter-spacing:0.04em;">+ More</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SECTION 10 — CONTACT ══ -->
+  <section class="lc-section" id="contact">
+    <div class="container">
+      <div class="lc-contact-inner" data-animate>
+        <span class="lc-label">Get in Touch</span>
+        <h2 class="lc-h2">Interested in the Lancaster<br>Community?</h2>
+        <p>Whether you are a future homeowner, realtor, builder, or project partner, our team would be glad to connect and share more about the community.</p>
+        <div class="lc-contact-ctas">
+          <a href="mailto:thelonestarcapitalpartners@gmail.com" class="btn btn-gold">Contact Us</a>
+          <a href="index.html#invest" class="btn btn-outline-navy">Schedule a Conversation</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="index.html" class="nav-logo">
+              <img src="logo.png" alt="Lone Star Capital Partners" class="nav-logo-img footer-logo-img">
+            </a>
+            <p class="footer-tagline">A modern Texas land development and capital firm documenting the real process publicly.</p>
+            <div class="social-row">
+              <a href="#" class="social-btn" aria-label="YouTube">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              </a>
+              <a href="#" class="social-btn" aria-label="Instagram">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              </a>
+              <a href="#" class="social-btn" aria-label="LinkedIn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>The Project</h4>
+            <ul>
+              <li><a href="#snapshot">Project Snapshot</a></li>
+              <li><a href="#community">Community Overview</a></li>
+              <li><a href="#progress">Development Progress</a></li>
+              <li><a href="#location">Why Lancaster</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="team.html">The Team</a></li>
+              <li><a href="index.html#projects">All Projects</a></li>
+              <li><a href="grays-creek-ovilla.html">Gray's Creek – Ovilla</a></li>
+              <li><a href="grays-creek-ennis.html">Gray's Creek – Ennis</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Contact</h4>
+            <p style="font-size:0.85rem;color:rgba(255,255,255,0.4);margin-bottom:10px;line-height:1.6;">For homeowner and partnership inquiries:</p>
+            <a href="mailto:thelonestarcapitalpartners@gmail.com" class="footer-email">thelonestarcapitalpartners@gmail.com</a>
+            <p style="font-size:0.8rem;color:rgba(255,255,255,0.25);margin-top:8px;">Lancaster, Texas — Dallas County</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p class="footer-copy">© 2025 Lone Star Capital Partners LLC. All rights reserved.</p>
+        <p class="footer-legal">This website is for informational purposes only and does not constitute an offer to sell or solicitation of an offer to buy any securities. All development plans are subject to change. Images and descriptions are for illustrative purposes only.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
