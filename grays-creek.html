@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gray's Creek Ranch Estates | Lone Star Capital Partners</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+
+    /* ============================================================
+       PAGE-WIDE OVERRIDES
+       ============================================================ */
+    :root { --sp-xl: 120px; --sp-lg: 88px; }
+
+    /* ============================================================
+       HERO
+       ============================================================ */
+    .gc-hero {
+      position: relative;
+      height: 100vh; min-height: 700px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      overflow: hidden;
+      background: #0A1628;
+    }
+    .gc-hero-bg {
+      position: absolute; inset: 0;
+      background: url('https://img.youtube.com/vi/M5dX96jWqcQ/maxresdefault.jpg') center/cover no-repeat;
+    }
+    .gc-hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(10,22,40,0.55) 0%,
+        rgba(10,22,40,0.48) 50%,
+        rgba(10,22,40,0.72) 100%
+      );
+    }
+    .gc-hero-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(200,169,106,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(200,169,106,0.03) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black, transparent);
+      -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black, transparent);
+    }
+    .gc-hero-content {
+      position: relative; z-index: 2;
+      text-align: center; padding: 0 32px;
+    }
+    .gc-hero-eyebrow {
+      display: flex; align-items: center; gap: 20px;
+      justify-content: center; margin-bottom: 32px;
+    }
+    .gc-ey-line { width: 40px; height: 1px; background: rgba(200,169,106,0.5); }
+    .gc-ey-text {
+      font-family: var(--fb); font-size: 11px; font-weight: 600;
+      letter-spacing: 0.28em; text-transform: uppercase;
+      color: rgba(200,169,106,0.85);
+    }
+    .gc-hero h1 {
+      font-family: var(--fh);
+      font-size: clamp(2.8rem, 6vw, 5.5rem);
+      font-weight: 400; letter-spacing: 0.04em; line-height: 1.08;
+      color: #FFFFFF; margin-bottom: 20px;
+    }
+    .gc-hero-rule {
+      width: 56px; height: 1px; margin: 0 auto 24px;
+      background: linear-gradient(to right, transparent, rgba(200,169,106,0.7), transparent);
+    }
+    .gc-hero-subtitle {
+      font-family: var(--fh);
+      font-size: clamp(1.1rem, 2vw, 1.45rem);
+      font-weight: 300; letter-spacing: 0.04em;
+      color: rgba(255,255,255,0.82);
+      max-width: 600px; margin: 0 auto 14px; line-height: 1.5;
+    }
+    .gc-hero-text {
+      font-family: var(--fb);
+      font-size: 1rem; color: rgba(255,255,255,0.65);
+      max-width: 560px; margin: 0 auto 44px; line-height: 1.8;
+    }
+    .gc-hero-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+    /* Bottom bar */
+    .gc-hero-foot {
+      position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
+      padding: 0 56px 40px;
+      display: flex; justify-content: space-between; align-items: flex-end;
+    }
+    .gc-location-tag {
+      display: flex; align-items: center; gap: 10px;
+      font-family: var(--fb); font-size: 10px; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+    }
+    .gc-location-dot { width: 6px; height: 6px; border-radius: 50%; background: #C8A96A; }
+    .gc-scroll-cue {
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+    }
+    .gc-scroll-label {
+      font-family: var(--fb); font-size: 9px; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(255,255,255,0.3); writing-mode: vertical-rl;
+    }
+    .gc-scroll-line {
+      width: 1px; height: 44px;
+      background: linear-gradient(to bottom, rgba(200,169,106,0.5), transparent);
+      animation: scanDown 2.4s ease infinite;
+    }
+
+    /* ============================================================
+       SECTION WRAPPERS
+       ============================================================ */
+    .gc-section        { padding: var(--sp-xl) 0; background: #FFFFFF; }
+    .gc-section-warm   { padding: var(--sp-xl) 0; background: #F5F3EF; }
+    .gc-section-alt    { padding: var(--sp-xl) 0; background: #EDEBE6; }
+    .gc-section-dark   { padding: var(--sp-xl) 0; background: #0A1628; }
+    .gc-section-navy2  { padding: var(--sp-xl) 0; background: #1C2E4A; }
+
+    .gc-center { text-align: center; }
+    .gc-max-prose { max-width: 720px; margin: 0 auto; }
+    .gc-max-text  { max-width: 580px; margin: 0 auto; }
+
+    .gc-section-label {
+      display: block; font-family: var(--fb); font-size: 10px; font-weight: 600;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: #C8A96A; margin-bottom: 16px;
+    }
+    .gc-h2 {
+      font-family: var(--fh);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 400; letter-spacing: 0.03em; line-height: 1.15;
+      color: #0A1628; margin-bottom: 24px;
+    }
+    .gc-h2-white { color: #FFFFFF; }
+    .gc-lead {
+      font-family: var(--fb); font-size: 1.05rem;
+      color: #1A1A1A; line-height: 1.8;
+    }
+    .gc-lead-white { color: rgba(255,255,255,0.82); }
+    .gc-rule-center {
+      width: 48px; height: 1px; margin: 28px auto 0;
+      background: linear-gradient(to right, transparent, rgba(200,169,106,0.6), transparent);
+    }
+    .gc-rule-left {
+      width: 40px; height: 1px; margin: 24px 0 0;
+      background: linear-gradient(to right, #C8A96A, transparent);
+    }
+
+    /* ============================================================
+       SECTION 2 — COMMUNITY OVERVIEW CARDS
+       ============================================================ */
+    .gc-feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(10,22,40,0.08);
+      border: 1px solid rgba(10,22,40,0.08);
+      overflow: hidden;
+      margin-top: 72px;
+    }
+    .gc-feature-card {
+      background: #FFFFFF; padding: 40px 32px;
+      display: flex; flex-direction: column;
+      transition: background 0.3s ease;
+    }
+    .gc-feature-card:hover { background: #F5F3EF; }
+    .gc-feature-icon {
+      width: 52px; height: 52px;
+      background: #F5F3EF; border: 1.5px solid #0A1628;
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.25rem; margin-bottom: 28px;
+      position: relative; flex-shrink: 0;
+    }
+    .gc-feature-icon::after {
+      content: '';
+      position: absolute; bottom: -10px; left: 50%;
+      transform: translateX(-50%);
+      width: 32px; height: 1px;
+      background: linear-gradient(to right, transparent, rgba(200,169,106,0.8), transparent);
+    }
+    .gc-feature-card h3 {
+      font-family: var(--fh); font-size: 1.2rem; font-weight: 400;
+      color: #0A1628; letter-spacing: 0.02em; line-height: 1.3;
+      margin-bottom: 10px;
+    }
+    .gc-feature-card p {
+      font-family: var(--fb); font-size: 0.875rem;
+      color: rgba(10,22,40,0.55); line-height: 1.7;
+    }
+
+    /* ============================================================
+       SECTION 3 — LOCATION
+       ============================================================ */
+    .gc-location-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+    }
+    .gc-highlights { display: flex; flex-direction: column; gap: 0; margin-top: 36px; }
+    .gc-highlight-item {
+      display: flex; align-items: center; gap: 16px;
+      padding: 16px 0;
+      border-bottom: 0.5px solid rgba(10,22,40,0.1);
+    }
+    .gc-highlight-item:last-child { border-bottom: none; }
+    .gc-highlight-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: #C8A96A; flex-shrink: 0;
+    }
+    .gc-highlight-text {
+      font-family: var(--fb); font-size: 0.9rem;
+      color: #1A1A1A; font-weight: 500;
+    }
+    .gc-map-wrap {
+      position: relative; border: 0.5px solid rgba(10,22,40,0.12);
+      overflow: hidden; height: 460px;
+    }
+    .gc-map-wrap iframe {
+      width: 100%; height: 100%; border: none; display: block;
+      filter: grayscale(15%) contrast(1.05);
+    }
+    .gc-map-label {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 12px 18px;
+      background: rgba(10,22,40,0.85);
+      font-family: var(--fb); font-size: 10px; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(200,169,106,0.85);
+    }
+
+    /* ============================================================
+       SECTION 4 — THE COMMUNITY (MEDIA)
+       ============================================================ */
+    .gc-media-intro {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 72px; align-items: center; margin-bottom: 72px;
+    }
+    .gc-video-feature {
+      position: relative; aspect-ratio: 16/10; overflow: hidden;
+      cursor: pointer; background: #0A1628;
+    }
+    .gc-video-feature img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.6s ease; opacity: 0.85;
+    }
+    .gc-video-feature:hover img { transform: scale(1.04); opacity: 0.95; }
+    .gc-video-play {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60px; height: 60px;
+      background: rgba(200,169,106,0.9); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: #0A1628; font-size: 20px; padding-left: 4px;
+      transition: transform 0.25s ease, background 0.25s ease;
+    }
+    .gc-video-feature:hover .gc-video-play {
+      transform: translate(-50%, -50%) scale(1.12);
+      background: #C8A96A;
+    }
+    .gc-video-caption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 14px 20px;
+      background: linear-gradient(to top, rgba(10,22,40,0.88), transparent);
+      font-family: var(--fb); font-size: 10px; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(200,169,106,0.9);
+    }
+
+    /* Media tile grid */
+    .gc-media-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .gc-media-tile {
+      position: relative; aspect-ratio: 4/3;
+      overflow: hidden; background: #1C2E4A;
+      border: 0.5px solid rgba(200,169,106,0.1);
+    }
+    .gc-media-tile-inner {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 14px;
+    }
+    .gc-tile-icon {
+      font-size: 1.8rem; opacity: 0.6;
+    }
+    .gc-tile-label {
+      font-family: var(--fb); font-size: 10px; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(200,169,106,0.6); text-align: center; padding: 0 16px;
+    }
+    .gc-tile-sublabel {
+      font-family: var(--fb); font-size: 9px;
+      color: rgba(255,255,255,0.25); letter-spacing: 0.12em;
+      text-transform: uppercase; text-align: center;
+    }
+    /* Tile with real photo */
+    .gc-media-tile--photo img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
+      display: block; opacity: 0.8;
+      transition: transform 0.5s ease, opacity 0.3s ease;
+    }
+    .gc-media-tile:hover .gc-media-tile--photo img {
+      transform: scale(1.05); opacity: 1;
+    }
+    .gc-media-tile--photo .gc-video-caption { font-size: 9px; padding: 10px 14px; }
+
+    /* ============================================================
+       SECTION 5 — PROGRESS TIMELINE
+       ============================================================ */
+    .gc-timeline {
+      display: flex; flex-direction: column; gap: 0;
+      max-width: 680px; margin: 60px auto 0;
+      position: relative;
+    }
+    .gc-timeline::before {
+      content: '';
+      position: absolute; top: 12px; bottom: 12px; left: 11px;
+      width: 1px; background: rgba(10,22,40,0.12);
+    }
+    .gc-timeline-item {
+      display: flex; gap: 28px; align-items: flex-start;
+      padding: 0 0 36px;
+      position: relative; z-index: 1;
+    }
+    .gc-timeline-item:last-child { padding-bottom: 0; }
+    .gc-tl-dot-wrap {
+      flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+      width: 24px; padding-top: 2px;
+    }
+    .gc-tl-dot {
+      width: 12px; height: 12px; border-radius: 50%;
+    }
+    .gc-tl-dot--done   { background: #C8A96A; border: 2px solid #C8A96A; }
+    .gc-tl-dot--now    { background: #FFFFFF; border: 2.5px solid #C8A96A;
+                          box-shadow: 0 0 0 4px rgba(200,169,106,0.18); animation: pulseGold 2s ease infinite; }
+    .gc-tl-dot--future { background: transparent; border: 2px solid rgba(10,22,40,0.2); }
+    @keyframes pulseGold {
+      0%, 100% { box-shadow: 0 0 0 4px rgba(200,169,106,0.18); }
+      50%       { box-shadow: 0 0 0 8px rgba(200,169,106,0.08); }
+    }
+    .gc-tl-body { flex: 1; padding-top: 0; }
+    .gc-tl-status {
+      font-family: var(--fb); font-size: 9px; font-weight: 600;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+    .gc-tl-status--done   { color: #C8A96A; }
+    .gc-tl-status--now    { color: #0A1628; }
+    .gc-tl-status--future { color: rgba(10,22,40,0.3); }
+    .gc-tl-title {
+      font-family: var(--fh); font-size: 1.25rem; font-weight: 400;
+      color: #0A1628; letter-spacing: 0.02em; line-height: 1.2; margin-bottom: 6px;
+    }
+    .gc-tl-title--future { color: rgba(10,22,40,0.4); }
+    .gc-tl-desc {
+      font-family: var(--fb); font-size: 0.875rem;
+      color: rgba(10,22,40,0.5); line-height: 1.65;
+    }
+
+    /* ============================================================
+       SECTION 6 — WHY ENNIS
+       ============================================================ */
+    .gc-why-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 24px; margin-top: 64px;
+    }
+    .gc-why-card {
+      background: #FFFFFF; border: 0.5px solid rgba(10,22,40,0.1);
+      padding: 36px 28px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .gc-why-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(10,22,40,0.1);
+    }
+    .gc-why-icon {
+      width: 52px; height: 52px;
+      background: #F5F3EF; border: 1.5px solid #0A1628;
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.25rem; margin-bottom: 28px;
+      position: relative;
+    }
+    .gc-why-icon::after {
+      content: '';
+      position: absolute; bottom: -10px; left: 50%;
+      transform: translateX(-50%);
+      width: 30px; height: 1px;
+      background: linear-gradient(to right, transparent, rgba(200,169,106,0.8), transparent);
+    }
+    .gc-why-card h3 {
+      font-family: var(--fh); font-size: 1.2rem; font-weight: 400;
+      color: #0A1628; margin-bottom: 12px; line-height: 1.2; letter-spacing: 0.02em;
+    }
+    .gc-why-card p {
+      font-family: var(--fb); font-size: 0.875rem;
+      color: rgba(10,22,40,0.55); line-height: 1.7;
+    }
+    .gc-why-outro {
+      max-width: 600px; margin: 56px auto 0;
+      text-align: center;
+      font-family: var(--fb); font-size: 1.02rem;
+      color: rgba(10,22,40,0.6); line-height: 1.8;
+    }
+
+    /* ============================================================
+       SECTION 7 — GALLERY
+       ============================================================ */
+    .gc-gallery-hero {
+      width: 100%; aspect-ratio: 21/9; overflow: hidden;
+      position: relative; margin-bottom: 16px;
+    }
+    .gc-gallery-hero img {
+      width: 100%; height: 100%; object-fit: cover;
+      display: block; object-position: center 40%;
+    }
+    .gc-gallery-hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,22,40,0.5), transparent 50%);
+    }
+    .gc-gallery-hero-label {
+      position: absolute; bottom: 24px; left: 32px;
+      font-family: var(--fb); font-size: 10px; font-weight: 600;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: rgba(200,169,106,0.9);
+    }
+    .gc-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto auto;
+      gap: 16px;
+    }
+    .gc-gallery-tile {
+      position: relative; overflow: hidden;
+      background: #1C2E4A;
+    }
+    .gc-gallery-tile--tall { grid-row: span 2; aspect-ratio: unset; }
+    .gc-gallery-tile:not(.gc-gallery-tile--tall) { aspect-ratio: 4/3; }
+    .gc-gallery-tile--tall { min-height: 100%; }
+    .gc-gallery-tile img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      opacity: 0.85; transition: transform 0.6s ease, opacity 0.3s ease;
+    }
+    .gc-gallery-tile:hover img { transform: scale(1.05); opacity: 1; }
+    .gc-gallery-tile-label {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 10px 14px;
+      background: linear-gradient(to top, rgba(10,22,40,0.75), transparent);
+      font-family: var(--fb); font-size: 9px; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(200,169,106,0.85);
+    }
+    /* Placeholder tiles */
+    .gc-gallery-tile--placeholder {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 12px; padding: 24px;
+      background: #1C2E4A;
+      border: 0.5px solid rgba(200,169,106,0.1);
+    }
+    .gc-gallery-tile--placeholder .gc-tile-icon { opacity: 0.4; }
+    .gc-gallery-ph-label {
+      font-family: var(--fb); font-size: 10px; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(200,169,106,0.5); text-align: center;
+    }
+    .gc-gallery-ph-sub {
+      font-family: var(--fb); font-size: 9px;
+      color: rgba(255,255,255,0.2); letter-spacing: 0.1em;
+      text-transform: uppercase; text-align: center;
+    }
+    .gc-gallery-note {
+      margin-top: 32px; text-align: center;
+      font-family: var(--fb); font-size: 10px; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(200,169,106,0.55);
+    }
+
+    /* ============================================================
+       SECTION 8 — MEET THE TEAM
+       ============================================================ */
+    .gc-team-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+    }
+    .gc-team-text h2 { color: #FFFFFF; margin-bottom: 20px; }
+    .gc-team-text p {
+      font-family: var(--fb); font-size: 1.02rem;
+      color: rgba(255,255,255,0.82); line-height: 1.8; margin-bottom: 36px;
+    }
+    .gc-team-faces {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+    }
+    .gc-face {
+      aspect-ratio: 1/1; overflow: hidden;
+      background: #1C2E4A; border: 0.5px solid rgba(200,169,106,0.15);
+    }
+    .gc-face img {
+      width: 100%; height: 100%; object-fit: cover;
+      object-position: center top; display: block;
+      filter: grayscale(20%); transition: filter 0.3s ease;
+    }
+    .gc-face:hover img { filter: grayscale(0); }
+
+    /* ============================================================
+       SECTION 9 — CONTACT
+       ============================================================ */
+    .gc-contact-inner {
+      max-width: 640px; margin: 0 auto; text-align: center;
+    }
+    .gc-contact-inner h2 { margin-bottom: 20px; }
+    .gc-contact-inner p {
+      font-family: var(--fb); font-size: 1.02rem;
+      color: rgba(10,22,40,0.6); line-height: 1.8; margin-bottom: 44px;
+    }
+    .gc-contact-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+    /* ============================================================
+       VIDEO MODAL (reused from main site)
+       ============================================================ */
+    .video-modal {
+      position: fixed; inset: 0; z-index: 9999;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none; transition: opacity 0.25s ease;
+    }
+    .video-modal.active { opacity: 1; pointer-events: all; }
+    .video-modal-overlay {
+      position: absolute; inset: 0; background: rgba(10,22,40,0.94);
+    }
+    .gc-video-modal-inner {
+      position: relative; z-index: 1;
+      width: min(90vw, calc(80vh * 16 / 9));
+      max-width: 900px; background: #000;
+      aspect-ratio: 16/9;
+    }
+    .gc-video-modal-inner iframe {
+      width: 100%; height: 100%; display: block; border: none;
+    }
+    .video-modal-close {
+      position: absolute; top: -42px; right: 0;
+      background: none; border: none;
+      color: #FFFFFF; font-size: 22px;
+      cursor: pointer; font-family: var(--fb);
+      line-height: 1; padding: 4px 8px; transition: color 0.2s;
+    }
+    .video-modal-close:hover { color: #C8A96A; }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (max-width: 1024px) {
+      .gc-feature-grid { grid-template-columns: repeat(2, 1fr); }
+      .gc-location-inner { grid-template-columns: 1fr; gap: 52px; }
+      .gc-map-wrap { height: 380px; }
+      .gc-media-intro { grid-template-columns: 1fr; gap: 40px; }
+      .gc-media-grid { grid-template-columns: repeat(2, 1fr); }
+      .gc-why-grid { grid-template-columns: repeat(2, 1fr); }
+      .gc-gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .gc-gallery-tile--tall { grid-row: auto; }
+      .gc-team-inner { grid-template-columns: 1fr; gap: 52px; }
+    }
+
+    @media (max-width: 768px) {
+      :root { --sp-xl: 72px; }
+      .gc-hero h1 { font-size: 2.6rem; }
+      .gc-feature-grid { grid-template-columns: 1fr; }
+      .gc-why-grid { grid-template-columns: 1fr; }
+      .gc-gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gc-hero-foot { padding: 0 24px 28px; }
+      .gc-hero-ctas { flex-direction: column; align-items: center; }
+      .gc-hero-ctas .btn { width: 100%; max-width: 300px; justify-content: center; }
+      .gc-team-faces { grid-template-columns: repeat(3, 1fr); }
+      .gc-media-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      .gc-gallery-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="logo.png" alt="Lone Star Capital Partners" class="nav-logo-img">
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#process">Process</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#transparency">Transparency</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="index.html#invest" class="nav-inquiry-mobile">Investor Inquiries</a></li>
+      </ul>
+      <a href="index.html#invest" class="nav-inquiry">Investor Inquiries</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════
+       SECTION 1 — HERO
+  ══════════════════════════════════════ -->
+  <section class="gc-hero" id="home">
+    <div class="gc-hero-bg"></div>
+    <div class="gc-hero-overlay"></div>
+    <div class="gc-hero-grid"></div>
+
+    <div class="gc-hero-content" data-animate>
+      <div class="gc-hero-eyebrow">
+        <span class="gc-ey-line"></span>
+        <span class="gc-ey-text">Ennis, Texas &nbsp;·&nbsp; Ellis County</span>
+        <span class="gc-ey-line"></span>
+      </div>
+      <h1>Gray's Creek<br>Ranch Estates</h1>
+      <div class="gc-hero-rule"></div>
+      <p class="gc-hero-subtitle">A thoughtfully planned residential community featuring spacious homesites in Ellis County, Texas.</p>
+      <p class="gc-hero-text">Located near Ennis and just south of Dallas, Gray's Creek Ranch Estates combines the privacy of acreage living with convenient access to one of the fastest-growing regions in Texas.</p>
+      <div class="gc-hero-ctas">
+        <a href="#community" class="btn btn-gold">View Community</a>
+        <a href="#contact" class="btn btn-ghost">Contact Us</a>
+      </div>
+    </div>
+
+    <div class="gc-hero-foot">
+      <div class="gc-location-tag">
+        <span class="gc-location-dot"></span>
+        Gray's Creek Ranch Estates &nbsp;·&nbsp; Ennis, TX 75119
+      </div>
+      <div class="gc-scroll-cue">
+        <span class="gc-scroll-label">Scroll</span>
+        <div class="gc-scroll-line"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       SECTION 2 — COMMUNITY OVERVIEW
+  ══════════════════════════════════════ -->
+  <section class="gc-section" id="community">
+    <div class="container">
+      <div class="gc-center gc-max-prose" data-animate>
+        <span class="gc-section-label">Community Overview</span>
+        <h2 class="gc-h2">A Vision for Modern Texas Living</h2>
+        <p class="gc-lead">Gray's Creek Ranch Estates is a master-planned residential community designed for families seeking space, privacy, and connection to nature. Large homesites, thoughtful planning, and proximity to the Dallas–Fort Worth metroplex create a unique opportunity for homeowners seeking both tranquility and accessibility.</p>
+        <div class="gc-rule-center"></div>
+      </div>
+
+      <div class="gc-feature-grid">
+        <div class="gc-feature-card" data-animate>
+          <div class="gc-feature-icon">🏘️</div>
+          <h3>100+ Acres Planned Community</h3>
+          <p>A large-scale residential community designed with space, privacy, and long-term community growth in mind.</p>
+        </div>
+        <div class="gc-feature-card" data-animate>
+          <div class="gc-feature-icon">🌳</div>
+          <h3>Large Residential Homesites</h3>
+          <p>Spacious lots offering room to build, grow, and enjoy a genuine Texas countryside lifestyle.</p>
+        </div>
+        <div class="gc-feature-card" data-animate>
+          <div class="gc-feature-icon">📍</div>
+          <h3>Located in Ellis County</h3>
+          <p>Situated in one of the fastest-growing counties in North Texas with expanding infrastructure and services.</p>
+        </div>
+        <div class="gc-feature-card" data-animate>
+          <div class="gc-feature-icon">🚗</div>
+          <h3>Minutes from Ennis</h3>
+          <p>Convenient access to downtown Ennis, local schools, shopping, dining, and major commuter routes.</p>
+        </div>
+        <div class="gc-feature-card" data-animate>
+          <div class="gc-feature-icon">🛣️</div>
+          <h3>Future Development Phases</h3>
+          <p>Phase-one homesites are the beginning of a long-term vision for a thoughtfully expanded residential community.</p>
+        </div>
+        <div class="gc-feature-card" data-animate>
+          <div class="gc-feature-icon">📈</div>
+          <h3>Growing North Texas Corridor</h3>
+          <p>Part of the broader North Texas growth story — sustained population growth, employment, and residential demand.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       SECTION 3 — LOCATION
+  ══════════════════════════════════════ -->
+  <section class="gc-section-warm" id="location">
+    <div class="container">
+      <div class="gc-location-inner">
+        <div data-animate>
+          <span class="gc-section-label">Location</span>
+          <h2 class="gc-h2">Positioned in the<br>Path of Growth</h2>
+          <p class="gc-lead">Located near Ennis in Ellis County, Gray's Creek Ranch Estates benefits from access to major transportation corridors, expanding employment opportunities, and continued residential growth throughout North Texas.</p>
+          <div class="gc-highlights">
+            <div class="gc-highlight-item">
+              <span class="gc-highlight-dot"></span>
+              <span class="gc-highlight-text">Near Interstate 45</span>
+            </div>
+            <div class="gc-highlight-item">
+              <span class="gc-highlight-dot"></span>
+              <span class="gc-highlight-text">Access to Dallas–Fort Worth Metroplex</span>
+            </div>
+            <div class="gc-highlight-item">
+              <span class="gc-highlight-dot"></span>
+              <span class="gc-highlight-text">Growing Ellis County Market</span>
+            </div>
+            <div class="gc-highlight-item">
+              <span class="gc-highlight-dot"></span>
+              <span class="gc-highlight-text">Award-Winning Schools Nearby</span>
+            </div>
+            <div class="gc-highlight-item">
+              <span class="gc-highlight-dot"></span>
+              <span class="gc-highlight-text">Shopping &amp; Dining Access</span>
+            </div>
+            <div class="gc-highlight-item">
+              <span class="gc-highlight-dot"></span>
+              <span class="gc-highlight-text">Recreation &amp; Outdoor Lifestyle</span>
+            </div>
+          </div>
+        </div>
+        <div data-animate>
+          <div class="gc-map-wrap">
+            <iframe
+              src="https://maps.google.com/maps?q=Ennis,+TX+75119&t=k&z=11&ie=UTF8&iwloc=&output=embed"
+              allowfullscreen loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            <div class="gc-map-label">📍 Ennis, Texas — Ellis County</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       SECTION 4 — THE COMMUNITY (MEDIA)
+  ══════════════════════════════════════ -->
+  <section class="gc-section-dark" id="property">
+    <div class="container">
+      <div class="gc-center gc-max-prose" style="margin-bottom:64px;" data-animate>
+        <span class="gc-section-label">The Community</span>
+        <h2 class="gc-h2 gc-h2-white">Designed for Space and Privacy</h2>
+        <p class="gc-lead gc-lead-white">The community is planned around larger homesites that provide room to live, grow, and enjoy a quieter lifestyle while remaining connected to the conveniences of modern living.</p>
+      </div>
+
+      <!-- Featured video + description -->
+      <div class="gc-media-intro">
+        <div data-animate>
+          <div class="gc-video-feature video-thumb" data-yt="M5dX96jWqcQ" id="gc-play-trigger">
+            <img src="https://img.youtube.com/vi/M5dX96jWqcQ/maxresdefault.jpg" alt="Gray's Creek Ranch Estates — Aerial Footage">
+            <div class="gc-video-play">▶</div>
+            <div class="gc-video-caption">Aerial Footage — Gray's Creek Ranch Estates</div>
+          </div>
+        </div>
+        <div data-animate>
+          <span class="gc-section-label">Property Footage</span>
+          <h3 style="font-family:var(--fh);font-size:1.7rem;font-weight:400;color:#FFFFFF;line-height:1.2;margin-bottom:18px;letter-spacing:0.03em;">See the Land.<br>Understand the Vision.</h3>
+          <p style="font-family:var(--fb);font-size:0.95rem;color:rgba(255,255,255,0.75);line-height:1.8;margin-bottom:28px;">Our aerial footage captures the scale, topography, and natural character of the Gray's Creek community. Road infrastructure is in place, and the property is actively moving toward the home construction phase.</p>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div style="display:flex;align-items:center;gap:12px;">
+              <span style="color:#C8A96A;font-size:0.8rem;">✓</span>
+              <span style="font-family:var(--fb);font-size:0.875rem;color:rgba(255,255,255,0.7);">Infrastructure completed</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;">
+              <span style="color:#C8A96A;font-size:0.8rem;">✓</span>
+              <span style="font-family:var(--fb);font-size:0.875rem;color:rgba(255,255,255,0.7);">Road access established</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;">
+              <span style="color:#C8A96A;font-size:0.8rem;">✓</span>
+              <span style="font-family:var(--fb);font-size:0.875rem;color:rgba(255,255,255,0.7);">60+ homes planned across phases</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;">
+              <span style="color:#C8A96A;font-size:0.8rem;">✓</span>
+              <span style="font-family:var(--fb);font-size:0.875rem;color:rgba(255,255,255,0.7);">Phase 1 — 5 homes launching</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Media tiles -->
+      <div class="gc-media-grid">
+        <div class="gc-media-tile" data-animate>
+          <img src="https://img.youtube.com/vi/M5dX96jWqcQ/maxresdefault.jpg" alt="Aerial view" style="width:100%;height:100%;object-fit:cover;object-position:center 60%;display:block;opacity:0.8;">
+          <div class="gc-video-caption" style="font-size:9px;padding:10px 14px;">Aerial Overview</div>
+        </div>
+        <div class="gc-media-tile gc-media-tile--placeholder" data-animate>
+          <div class="gc-tile-icon">🗺️</div>
+          <div class="gc-gallery-ph-label">Community Plat</div>
+          <div class="gc-gallery-ph-sub">Available upon request</div>
+        </div>
+        <div class="gc-media-tile gc-media-tile--placeholder" data-animate>
+          <div class="gc-tile-icon">🛣️</div>
+          <div class="gc-gallery-ph-label">Road Infrastructure</div>
+          <div class="gc-gallery-ph-sub">Documentation in progress</div>
+        </div>
+        <div class="gc-media-tile" data-animate>
+          <img src="https://img.youtube.com/vi/M5dX96jWqcQ/maxresdefault.jpg" alt="Property view" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;opacity:0.8;">
+          <div class="gc-video-caption" style="font-size:9px;padding:10px 14px;">Property Boundary</div>
+        </div>
+        <div class="gc-media-tile gc-media-tile--placeholder" data-animate>
+          <div class="gc-tile-icon">🏗️</div>
+          <div class="gc-gallery-ph-label">Progress Photography</div>
+          <div class="gc-gallery-ph-sub">Documentation in progress</div>
+        </div>
+        <div class="gc-media-tile gc-media-tile--placeholder" data-animate>
+          <div class="gc-tile-icon">🏡</div>
+          <div class="gc-gallery-ph-label">Home Renderings</div>
+          <div class="gc-gallery-ph-sub">Coming soon</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       SECTION 5 — DEVELOPMENT PROGRESS
+  ══════════════════════════════════════ -->
+  <section class="gc-section-alt" id="progress">
+    <div class="container">
+      <div class="gc-center gc-max-prose" data-animate>
+        <span class="gc-section-label">Development Timeline</span>
+        <h2 class="gc-h2">Project Progress</h2>
+        <p class="gc-lead">From raw land to an active development site — here's where we are today and where we're headed.</p>
+        <div class="gc-rule-center"></div>
+      </div>
+
+      <div class="gc-timeline">
+        <div class="gc-timeline-item" data-animate>
+          <div class="gc-tl-dot-wrap"><div class="gc-tl-dot gc-tl-dot--done"></div></div>
+          <div class="gc-tl-body">
+            <div class="gc-tl-status gc-tl-status--done">Completed</div>
+            <div class="gc-tl-title">Land Acquisition</div>
+            <p class="gc-tl-desc">100+ acre property secured in Ellis County near Ennis, Texas. Due diligence, title, and surveys complete.</p>
+          </div>
+        </div>
+        <div class="gc-timeline-item" data-animate>
+          <div class="gc-tl-dot-wrap"><div class="gc-tl-dot gc-tl-dot--done"></div></div>
+          <div class="gc-tl-body">
+            <div class="gc-tl-status gc-tl-status--done">Completed</div>
+            <div class="gc-tl-title">Planning &amp; Design</div>
+            <p class="gc-tl-desc">Community layout, lot configuration, and development phasing plan established with engineering partners.</p>
+          </div>
+        </div>
+        <div class="gc-timeline-item" data-animate>
+          <div class="gc-tl-dot-wrap"><div class="gc-tl-dot gc-tl-dot--done"></div></div>
+          <div class="gc-tl-body">
+            <div class="gc-tl-status gc-tl-status--done">Completed</div>
+            <div class="gc-tl-title">Engineering Coordination</div>
+            <p class="gc-tl-desc">Civil engineering, infrastructure design, and municipal coordination finalized through HCE Engineering.</p>
+          </div>
+        </div>
+        <div class="gc-timeline-item" data-animate>
+          <div class="gc-tl-dot-wrap"><div class="gc-tl-dot gc-tl-dot--done"></div></div>
+          <div class="gc-tl-body">
+            <div class="gc-tl-status gc-tl-status--done">Completed</div>
+            <div class="gc-tl-title">Road &amp; Infrastructure Improvements</div>
+            <p class="gc-tl-desc">Road access established and utility infrastructure installed. The site is ready for home construction.</p>
+          </div>
+        </div>
+        <div class="gc-timeline-item" data-animate>
+          <div class="gc-tl-dot-wrap"><div class="gc-tl-dot gc-tl-dot--now"></div></div>
+          <div class="gc-tl-body">
+            <div class="gc-tl-status gc-tl-status--now">In Progress</div>
+            <div class="gc-tl-title">Preparation for Home Construction</div>
+            <p class="gc-tl-desc">Phase 1 homes are being positioned for construction launch. Lot finalization and builder coordination underway.</p>
+          </div>
+        </div>
+        <div class="gc-timeline-item" data-animate>
+          <div class="gc-tl-dot-wrap"><div class="gc-tl-dot gc-tl-dot--future"></div></div>
+          <div class="gc-tl-body">
+            <div class="gc-tl-status gc-tl-status--future">Future</div>
+            <div class="gc-tl-title gc-tl-title--future">Additional Residential Phases</div>
+            <p class="gc-tl-desc" style="color:rgba(10,22,40,0.3);">Subsequent phases will expand the community with additional homesites and amenity planning.</p>
+          </div>
+        </div>
+        <div class="gc-timeline-item" data-animate>
+          <div class="gc-tl-dot-wrap"><div class="gc-tl-dot gc-tl-dot--future"></div></div>
+          <div class="gc-tl-body">
+            <div class="gc-tl-status gc-tl-status--future">Future</div>
+            <div class="gc-tl-title gc-tl-title--future">Community Expansion</div>
+            <p class="gc-tl-desc" style="color:rgba(10,22,40,0.3);">Long-term vision for a fully established residential neighborhood with completed streets, homes, and community character.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       SECTION 6 — WHY ENNIS
+  ══════════════════════════════════════ -->
+  <section class="gc-section" id="ennis">
+    <div class="container">
+      <div class="gc-center gc-max-prose" data-animate>
+        <span class="gc-section-label">Why Ennis</span>
+        <h2 class="gc-h2">Why Families Are<br>Choosing Ennis</h2>
+      </div>
+
+      <div class="gc-why-grid">
+        <div class="gc-why-card" data-animate>
+          <div class="gc-why-icon">🏘️</div>
+          <h3>Small-Town Character</h3>
+          <p>Ennis offers the warmth and community feel of a smaller Texas city — friendly neighbors, local events, and a strong sense of belonging.</p>
+        </div>
+        <div class="gc-why-card" data-animate>
+          <div class="gc-why-icon">📈</div>
+          <h3>Growing Local Economy</h3>
+          <p>Ellis County is experiencing steady economic expansion with new employers, infrastructure investment, and rising residential demand.</p>
+        </div>
+        <div class="gc-why-card" data-animate>
+          <div class="gc-why-icon">🏛️</div>
+          <h3>Historic Downtown</h3>
+          <p>A charming historic district with local restaurants, shops, and community events that reflect the rich culture of central Texas.</p>
+        </div>
+        <div class="gc-why-card" data-animate>
+          <div class="gc-why-icon">🌿</div>
+          <h3>Outdoor Recreation</h3>
+          <p>Parks, lakes, trails, and wide open spaces make Ennis an ideal home for families who value an active outdoor lifestyle.</p>
+        </div>
+        <div class="gc-why-card" data-animate>
+          <div class="gc-why-icon">🎓</div>
+          <h3>Quality Schools</h3>
+          <p>Ennis ISD provides quality education with a commitment to student achievement and community involvement.</p>
+        </div>
+        <div class="gc-why-card" data-animate>
+          <div class="gc-why-icon">🚗</div>
+          <h3>Easy Dallas Access</h3>
+          <p>Just south of the Metroplex via I-45, Ennis provides a genuine alternative to urban density without sacrificing connectivity.</p>
+        </div>
+      </div>
+
+      <p class="gc-why-outro" data-animate>
+        Ennis continues to attract residents seeking a strong sense of community, affordability, and access to the broader Dallas–Fort Worth region.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       SECTION 7 — GALLERY
+  ══════════════════════════════════════ -->
+  <section class="gc-section-dark" id="gallery">
+    <div class="container">
+      <div class="gc-center" style="margin-bottom:52px;" data-animate>
+        <span class="gc-section-label">Gallery</span>
+        <h2 class="gc-h2 gc-h2-white">The Property</h2>
+      </div>
+
+      <!-- Hero-wide image -->
+      <div class="gc-gallery-hero" data-animate>
+        <img src="https://img.youtube.com/vi/M5dX96jWqcQ/maxresdefault.jpg" alt="Gray's Creek Ranch Estates — Aerial">
+        <div class="gc-gallery-hero-overlay"></div>
+        <span class="gc-gallery-hero-label">Aerial Documentation — Gray's Creek Ranch Estates</span>
+      </div>
+
+      <!-- Grid -->
+      <div class="gc-gallery-grid">
+        <div class="gc-gallery-tile gc-gallery-tile--tall" data-animate>
+          <img src="https://img.youtube.com/vi/M5dX96jWqcQ/maxresdefault.jpg" alt="Aerial view" style="object-position:left center;">
+          <div class="gc-gallery-tile-label">Property Overview</div>
+        </div>
+        <div class="gc-gallery-tile gc-gallery-tile--placeholder" data-animate>
+          <div class="gc-tile-icon" style="font-size:1.6rem;opacity:0.4;">📸</div>
+          <div class="gc-gallery-ph-label">Drone Photography</div>
+          <div class="gc-gallery-ph-sub">Aerial documentation in progress</div>
+        </div>
+        <div class="gc-gallery-tile gc-gallery-tile--placeholder" data-animate>
+          <div class="gc-tile-icon" style="font-size:1.6rem;opacity:0.4;">🛣️</div>
+          <div class="gc-gallery-ph-label">Road Construction</div>
+          <div class="gc-gallery-ph-sub">Documentation in progress</div>
+        </div>
+        <div class="gc-gallery-tile gc-gallery-tile--placeholder" data-animate>
+          <div class="gc-tile-icon" style="font-size:1.6rem;opacity:0.4;">🏗️</div>
+          <div class="gc-gallery-ph-label">Infrastructure Work</div>
+          <div class="gc-gallery-ph-sub">Documentation in progress</div>
+        </div>
+        <div class="gc-gallery-tile gc-gallery-tile--placeholder" data-animate>
+          <div class="gc-tile-icon" style="font-size:1.6rem;opacity:0.4;">🏡</div>
+          <div class="gc-gallery-ph-label">Home Renderings</div>
+          <div class="gc-gallery-ph-sub">Coming soon</div>
+        </div>
+      </div>
+
+      <p class="gc-gallery-note" data-animate>Aerial &amp; site photography — updated as development progresses</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       SECTION 8 — MEET THE TEAM
+  ══════════════════════════════════════ -->
+  <section class="gc-section-navy2" id="team-section">
+    <div class="container">
+      <div class="gc-team-inner">
+        <div class="gc-team-text" data-animate>
+          <span class="gc-section-label">The People</span>
+          <h2 class="gc-h2 gc-h2-white">A Team Built<br>for Execution</h2>
+          <p>Gray's Creek Ranch Estates is supported by a team of experienced professionals across development, construction, engineering, planning, and real estate. Each person brings a specific discipline that moves this project forward.</p>
+          <a href="team.html" class="btn btn-gold">Meet the Full Team</a>
+        </div>
+        <div class="gc-team-faces" data-animate>
+          <div class="gc-face">
+            <img src="team/daniel.jpg" alt="Daniel Almaguer III">
+          </div>
+          <div class="gc-face">
+            <img src="team/kirk.jpg" alt="Kirk Kibler">
+          </div>
+          <div class="gc-face">
+            <img src="team/hilario.jpg" alt="HCE Engineering">
+          </div>
+          <div class="gc-face">
+            <img src="team/elsie.jpg" alt="Elsie Thurman">
+          </div>
+          <div class="gc-face">
+            <img src="team/shahab.jpg" alt="Shahab Smoqi">
+          </div>
+          <div class="gc-face" style="background:rgba(200,169,106,0.08);display:flex;align-items:center;justify-content:center;">
+            <span style="font-family:var(--fh);font-size:1.1rem;color:rgba(200,169,106,0.6);letter-spacing:0.04em;">+ More</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       SECTION 9 — CONTACT
+  ══════════════════════════════════════ -->
+  <section class="gc-section" id="contact">
+    <div class="container">
+      <div class="gc-contact-inner" data-animate>
+        <span class="gc-section-label">Get in Touch</span>
+        <h2 class="gc-h2">Interested in<br>Learning More?</h2>
+        <p>Whether you're a future homeowner, realtor, land buyer, or potential project partner, we'd love to connect and share more about what we're building at Gray's Creek.</p>
+        <div class="gc-contact-ctas">
+          <a href="mailto:thelonestarcapitalpartners@gmail.com" class="btn btn-gold">Contact Us</a>
+          <a href="index.html#invest" class="btn btn-outline-navy">Schedule a Conversation</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="index.html" class="nav-logo">
+              <img src="logo.png" alt="Lone Star Capital Partners" class="nav-logo-img footer-logo-img">
+            </a>
+            <p class="footer-tagline">A modern Texas land development and capital firm documenting the real process publicly.</p>
+            <div class="social-row">
+              <a href="#" class="social-btn" aria-label="YouTube">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              </a>
+              <a href="#" class="social-btn" aria-label="Instagram">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              </a>
+              <a href="#" class="social-btn" aria-label="LinkedIn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>The Project</h4>
+            <ul>
+              <li><a href="#community">Community Overview</a></li>
+              <li><a href="#location">Location</a></li>
+              <li><a href="#property">The Property</a></li>
+              <li><a href="#progress">Development Progress</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="team.html">The Team</a></li>
+              <li><a href="index.html#projects">All Projects</a></li>
+              <li><a href="index.html#transparency">Transparency</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Contact</h4>
+            <p style="font-size:0.85rem;color:rgba(255,255,255,0.4);margin-bottom:10px;line-height:1.6;">For homeowner and partnership inquiries:</p>
+            <a href="mailto:thelonestarcapitalpartners@gmail.com" class="footer-email">thelonestarcapitalpartners@gmail.com</a>
+            <p style="font-size:0.8rem;color:rgba(255,255,255,0.25);margin-top:8px;">Ennis, Texas — Ellis County</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p class="footer-copy">© 2025 Lone Star Capital Partners LLC. All rights reserved.</p>
+        <p class="footer-legal">This website is for informational purposes only and does not constitute an offer to sell or solicitation of an offer to buy any securities. All development plans are subject to change. Images and descriptions are for illustrative purposes only.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- VIDEO MODAL -->
+  <div class="video-modal" id="gcVideoModal">
+    <div class="video-modal-overlay" id="gcModalOverlay"></div>
+    <div class="gc-video-modal-inner">
+      <button class="video-modal-close" id="gcModalClose">✕</button>
+      <iframe id="gcVideoPlayer" frameborder="0"
+        allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    // Page-specific: landscape video modal (16:9)
+    const gcModal   = document.getElementById('gcVideoModal');
+    const gcPlayer  = document.getElementById('gcVideoPlayer');
+    const gcClose   = document.getElementById('gcModalClose');
+    const gcOverlay = document.getElementById('gcModalOverlay');
+
+    document.getElementById('gc-play-trigger').addEventListener('click', () => {
+      gcPlayer.src = 'https://www.youtube.com/embed/M5dX96jWqcQ?autoplay=1&rel=0';
+      gcModal.classList.add('active');
+    });
+
+    function closeGcVideo() {
+      gcModal.classList.remove('active');
+      gcPlayer.src = '';
+    }
+
+    gcClose.addEventListener('click', closeGcVideo);
+    gcOverlay.addEventListener('click', closeGcVideo);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeGcVideo(); });
+  </script>
+</body>
+</html>
