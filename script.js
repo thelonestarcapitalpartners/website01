@@ -211,25 +211,27 @@ sections.forEach(s => sectionObs.observe(s));
 /* ============================================================
    VIDEO MODAL
    ============================================================ */
-const videoModal   = document.getElementById('videoModal');
-const videoPlayer  = document.getElementById('videoModalPlayer');
-const modalClose   = document.getElementById('videoModalClose');
-const modalOverlay = videoModal.querySelector('.video-modal-overlay');
+const videoModal = document.getElementById('videoModal');
+if (videoModal) {
+  const videoPlayer  = document.getElementById('videoModalPlayer');
+  const modalClose   = document.getElementById('videoModalClose');
+  const modalOverlay = videoModal.querySelector('.video-modal-overlay');
 
-function openVideo(ytId) {
-  videoPlayer.src = 'https://www.youtube.com/embed/' + ytId + '?autoplay=1&rel=0';
-  videoModal.classList.add('active');
+  function openVideo(ytId) {
+    videoPlayer.src = 'https://www.youtube.com/embed/' + ytId + '?autoplay=1&rel=0';
+    videoModal.classList.add('active');
+  }
+
+  function closeVideo() {
+    videoModal.classList.remove('active');
+    videoPlayer.src = '';
+  }
+
+  document.querySelectorAll('.video-thumb').forEach(thumb => {
+    thumb.addEventListener('click', () => openVideo(thumb.dataset.yt));
+  });
+
+  modalClose.addEventListener('click', closeVideo);
+  modalOverlay.addEventListener('click', closeVideo);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeVideo(); });
 }
-
-function closeVideo() {
-  videoModal.classList.remove('active');
-  videoPlayer.src = '';
-}
-
-document.querySelectorAll('.video-thumb').forEach(thumb => {
-  thumb.addEventListener('click', () => openVideo(thumb.dataset.yt));
-});
-
-modalClose.addEventListener('click', closeVideo);
-modalOverlay.addEventListener('click', closeVideo);
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeVideo(); });
