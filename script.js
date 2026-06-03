@@ -31,6 +31,17 @@ navLinks.querySelectorAll('a').forEach(a => {
   });
 });
 
+// Mobile: tap the Projects link to toggle dropdown
+document.querySelectorAll('.has-dropdown').forEach(item => {
+  const link = item.querySelector(':scope > a');
+  link.addEventListener('click', e => {
+    if (window.innerWidth <= 768) {
+      e.preventDefault();
+      item.classList.toggle('open');
+    }
+  });
+});
+
 /* ============================================================
    SMOOTH SCROLL — offset for fixed nav
    ============================================================ */

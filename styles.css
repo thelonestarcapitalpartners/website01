@@ -157,6 +157,133 @@ img { max-width: 100%; display: block; }
 /* Hide mobile inquiry link in desktop nav list */
 .nav-inquiry-mobile { display: none; }
 
+/* ── Projects dropdown ── */
+.has-dropdown { position: relative; }
+
+/* chevron indicator */
+.has-dropdown > a .dd-chevron {
+  display: inline-block;
+  font-size: 7px;
+  margin-left: 5px;
+  vertical-align: middle;
+  opacity: 0.55;
+  transition: transform 0.2s ease;
+}
+.has-dropdown:hover > a .dd-chevron { transform: rotate(180deg); }
+
+.nav-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-6px);
+  min-width: 280px;
+  background: rgba(10,22,40,0.98);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 0.5px solid rgba(200,169,106,0.18);
+  border-top: 2px solid rgba(200,169,106,0.5);
+  box-shadow: 0 24px 64px rgba(0,0,0,0.45);
+  padding: 10px 0 12px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.22s ease, visibility 0.22s ease, transform 0.22s ease;
+  z-index: 999;
+}
+.has-dropdown:hover .nav-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* "All Projects" header row */
+.nav-dd-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 8px 20px 12px;
+  border-bottom: 0.5px solid rgba(200,169,106,0.12);
+  margin-bottom: 6px;
+}
+.nav-dd-header span {
+  font-family: var(--fb); font-size: 9px; font-weight: 600;
+  letter-spacing: 0.26em; text-transform: uppercase;
+  color: rgba(200,169,106,0.55);
+}
+.nav-dd-header a {
+  font-family: var(--fb); font-size: 9px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(200,169,106,0.55);
+  border-bottom: none !important; padding: 0 !important;
+  transition: color 0.2s ease;
+}
+.nav-dd-header a::after { display: none !important; }
+.nav-dd-header a:hover { color: var(--red) !important; }
+
+/* Project row */
+.nav-dd-item {
+  display: flex; align-items: center;
+  padding: 9px 20px;
+  gap: 12px;
+  transition: background 0.18s ease;
+  text-decoration: none;
+  border-bottom: none !important;
+}
+.nav-dd-item::after { display: none !important; }
+.nav-dd-item:hover { background: rgba(200,169,106,0.06); }
+.nav-dd-item:hover .nav-dd-name { color: #FFFFFF !important; }
+
+.nav-dd-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  flex-shrink: 0;
+}
+.nav-dd-dot--active { background: #22c55e; }
+.nav-dd-dot--muted  { background: rgba(200,169,106,0.35); }
+
+.nav-dd-info { display: flex; flex-direction: column; gap: 2px; flex: 1; }
+.nav-dd-name {
+  font-family: var(--fh); font-size: 0.97rem; font-weight: 400;
+  color: rgba(255,255,255,0.82); letter-spacing: 0.02em; line-height: 1.2;
+  transition: color 0.18s ease;
+  text-transform: none !important; letter-spacing: 0.02em !important;
+}
+.nav-dd-loc {
+  font-family: var(--fb); font-size: 9px; font-weight: 500;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(200,169,106,0.45);
+}
+
+/* Dedicated page arrow badge */
+.nav-dd-arrow {
+  font-size: 10px; color: rgba(200,169,106,0.4);
+  flex-shrink: 0; transition: color 0.18s ease, transform 0.18s ease;
+}
+.nav-dd-item:hover .nav-dd-arrow { color: var(--red); transform: translate(2px,-2px); }
+
+/* Divider inside dropdown */
+.nav-dd-sep {
+  height: 0.5px;
+  background: rgba(200,169,106,0.1);
+  margin: 6px 0;
+}
+
+/* Mobile: show dropdown links inline */
+@media (max-width: 768px) {
+  .nav-dropdown {
+    position: static;
+    transform: none;
+    opacity: 1; visibility: visible;
+    background: rgba(255,255,255,0.04);
+    border: none; border-top: none;
+    box-shadow: none;
+    backdrop-filter: none;
+    padding: 0;
+    margin: 0;
+    display: none;
+  }
+  .has-dropdown.open .nav-dropdown { display: block; }
+  .nav-dd-item { padding: 8px 28px; }
+  .nav-dd-header { padding: 6px 28px 10px; }
+  .has-dropdown > a .dd-chevron { display: none; }
+}
+
 .hamburger { display: none; flex-direction: column; gap: 5px; padding: 8px; }
 .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--white); border-radius: 2px; transition: var(--t); }
 .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
