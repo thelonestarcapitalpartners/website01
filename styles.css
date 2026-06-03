@@ -98,10 +98,11 @@ img { max-width: 100%; display: block; }
    NAVIGATION
    ============================================================ */
 .navbar {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 900;
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
   background: var(--navy);
   border-bottom: 1px solid rgba(200,169,106,0.08);
   transition: var(--t);
+  overflow: visible;
 }
 .navbar.scrolled {
   background: rgba(10,22,40,0.97);
@@ -171,23 +172,30 @@ img { max-width: 100%; display: block; }
 }
 .has-dropdown:hover > a .dd-chevron { transform: rotate(180deg); }
 
+/* Transparent bridge between nav link and dropdown — prevents hover gap flicker */
+.has-dropdown::after {
+  content: '';
+  position: absolute;
+  top: 100%; left: -10px; right: -10px;
+  height: 18px;
+  background: transparent;
+}
+
 .nav-dropdown {
   position: absolute;
-  top: calc(100% + 10px);
+  top: calc(100% + 8px);
   left: 50%;
-  transform: translateX(-50%) translateY(-6px);
-  min-width: 280px;
+  transform: translateX(-50%) translateY(-4px);
+  min-width: 290px;
   background: rgba(10,22,40,0.98);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 0.5px solid rgba(200,169,106,0.18);
-  border-top: 2px solid rgba(200,169,106,0.5);
-  box-shadow: 0 24px 64px rgba(0,0,0,0.45);
+  border: 0.5px solid rgba(200,169,106,0.2);
+  border-top: 2px solid rgba(200,169,106,0.55);
+  box-shadow: 0 20px 56px rgba(0,0,0,0.5);
   padding: 10px 0 12px;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.22s ease, visibility 0.22s ease, transform 0.22s ease;
-  z-index: 999;
+  transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+  z-index: 1001;
 }
 .has-dropdown:hover .nav-dropdown {
   opacity: 1;
